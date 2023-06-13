@@ -1,0 +1,1 @@
+// Javascript para la primera visualización

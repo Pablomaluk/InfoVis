@@ -1,0 +1,135 @@
+league_name,team_name,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38
+Bundesliga,Eintracht Frankfurt,L,D,D,W,W,L,W,W,L,W,W,L,W,W,D,W,D,D,W,L,W,L,D,D,L,D,L,D,L,D,L,W,D,P,P,P,P,P
+Bundesliga,FC Augsburg,L,W,L,L,L,W,W,W,D,L,D,L,L,D,L,L,W,L,W,L,W,L,W,L,D,D,L,L,D,D,W,L,L,P,P,P,P,P
+Bundesliga,VfL Bochum 1848,L,L,L,L,L,L,D,L,W,L,W,L,L,W,W,W,L,L,W,L,L,L,L,W,W,D,L,D,L,D,L,W,D,P,P,P,P,P
+Bundesliga,VfL Wolfsburg,D,L,D,L,L,W,L,W,D,D,D,W,W,W,W,W,W,L,L,D,L,W,D,D,W,D,L,D,W,W,L,W,L,P,P,P,P,P
+Bundesliga,Borussia Mönchengladbach,W,D,W,D,L,D,W,L,W,D,L,L,W,L,W,L,L,W,D,L,W,L,D,L,D,D,W,D,L,L,W,L,D,P,P,P,P,P
+Bundesliga,1. FC Union Berlin,W,D,W,W,D,W,W,L,W,W,L,W,L,D,L,W,W,W,W,W,D,L,D,D,W,W,L,D,W,D,L,W,L,P,P,P,P,P
+Bundesliga,Borussia Dortmund,W,W,L,W,W,L,W,L,D,L,W,W,W,L,L,W,W,W,W,W,W,W,W,D,W,L,W,D,W,D,W,W,W,P,P,P,P,P
+Bundesliga,VfB Stuttgart,D,D,L,D,D,D,L,L,L,W,L,W,L,W,L,D,D,L,L,L,W,L,L,D,L,L,W,D,D,W,L,D,W,P,P,P,P,P
+Bundesliga,1. FC Köln,W,D,D,D,W,L,D,W,L,W,L,D,L,L,L,W,D,D,D,W,L,L,D,L,L,D,W,D,W,L,W,W,D,P,P,P,P,P
+Bundesliga,SC Freiburg,W,L,W,W,W,D,D,W,D,L,W,W,W,L,W,L,D,W,L,W,W,D,D,W,D,D,L,W,W,W,L,L,W,P,P,P,P,P
+Bundesliga,SV Werder Bremen,D,D,W,L,W,L,D,W,W,L,L,W,W,L,L,L,L,W,W,L,L,W,L,L,D,L,D,L,W,L,L,L,D,P,P,P,P,P
+Bundesliga,Hertha BSC,L,D,L,L,W,D,D,D,D,L,W,L,L,L,W,L,L,L,L,W,L,W,L,D,L,D,L,L,L,L,W,L,D,P,P,P,P,P
+Bundesliga,TSG 1899 Hoffenheim,L,W,W,W,L,W,D,D,L,W,L,D,L,L,L,L,D,L,L,L,L,L,L,L,W,W,W,D,L,L,W,L,W,P,P,P,P,P
+Bundesliga,RB Leipzig,D,D,L,W,L,W,L,W,D,W,D,W,W,W,W,D,W,W,D,L,W,W,L,W,L,L,W,W,L,W,W,W,W,P,P,P,P,P
+Bundesliga,Bayer 04 Leverkusen,L,L,L,W,L,D,D,L,W,L,D,L,W,W,W,W,W,L,L,W,L,D,W,W,W,W,W,D,W,D,L,D,D,P,P,P,P,P
+Bundesliga,FC Schalke 04,L,D,D,L,D,W,L,L,L,L,L,L,L,W,L,L,L,D,D,D,D,W,W,D,D,L,L,W,L,W,W,L,D,P,P,P,P,P
+Bundesliga,1. FSV Mainz 05,W,D,W,L,W,L,D,L,D,W,W,L,L,L,D,D,L,W,L,W,W,W,W,D,D,W,D,D,W,L,L,L,L,P,P,P,P,P
+Bundesliga,FC Bayern München,W,W,W,D,D,D,L,W,D,W,W,W,W,W,W,D,D,D,W,W,L,W,W,W,L,W,W,D,L,W,W,W,L,P,P,P,P,P
+Eredivisie,SC Heerenveen,D,D,W,W,D,L,W,D,L,D,W,L,W,W,D,L,W,L,L,L,L,W,L,D,L,W,D,W,L,L,W,D,D,P,P,P,P,P
+Eredivisie,Fortuna Sittard,L,L,L,L,L,D,W,W,W,D,D,L,L,W,L,D,L,W,W,D,W,L,L,W,L,L,W,L,L,L,W,L,L,P,P,P,P,P
+Eredivisie,SC Cambuur-Leeuwarden,L,D,W,L,L,L,L,W,D,L,L,L,L,L,L,D,L,W,L,L,D,L,L,W,L,L,L,L,L,L,L,L,L,P,P,P,P,P
+Eredivisie,PSV,W,W,W,W,L,W,W,L,W,W,L,W,W,L,D,D,W,L,W,D,W,D,W,W,W,D,W,W,W,W,W,W,D,P,P,P,P,P
+Eredivisie,RKC Waalwijk,D,D,L,D,W,L,W,D,W,D,L,L,W,L,D,L,W,D,W,D,L,W,W,L,L,L,W,L,W,L,W,L,L,P,P,P,P,P
+Eredivisie,FC Groningen,D,L,W,D,L,W,L,L,L,L,W,D,L,L,L,L,L,L,L,D,L,D,W,L,L,L,L,L,L,L,D,L,L,P,P,P,P,P
+Eredivisie,NEC,L,W,D,D,D,D,D,D,D,L,D,L,W,W,D,D,W,L,D,L,D,W,W,L,D,W,L,D,L,W,L,L,L,P,P,P,P,P
+Eredivisie,SBV Vitesse,L,L,L,D,W,L,D,L,L,W,W,D,L,D,D,D,L,D,W,D,W,L,L,L,L,D,L,W,W,D,L,W,W,P,P,P,P,P
+Eredivisie,AZ,W,W,D,W,W,D,W,W,W,L,L,W,L,W,D,W,W,W,D,D,W,L,W,W,W,L,D,L,W,W,D,W,W,P,P,P,P,P
+Eredivisie,SBV Excelsior,W,W,L,L,L,W,L,L,D,L,W,L,L,L,W,L,W,L,L,D,L,L,L,L,L,W,D,L,W,D,L,D,W,P,P,P,P,P
+Eredivisie,Go Ahead Eagles,L,L,L,L,L,W,W,D,D,D,D,W,D,D,W,D,L,L,L,W,L,W,D,L,W,W,D,L,L,W,D,L,W,P,P,P,P,P
+Eredivisie,FC Utrecht,D,D,L,L,W,W,D,W,L,L,W,W,W,W,D,D,L,W,D,W,L,D,W,L,D,L,D,W,W,L,W,W,L,P,P,P,P,P
+Eredivisie,FC Emmen,L,D,W,L,L,L,L,D,L,D,L,D,W,D,L,D,L,W,L,D,L,D,D,L,W,L,W,D,L,W,L,L,L,P,P,P,P,P
+Eredivisie,Feyenoord Rotterdam,W,D,W,W,W,W,L,D,W,W,D,W,W,W,D,W,D,W,D,D,W,W,W,W,W,W,W,W,W,W,W,W,W,P,P,P,P,P
+Eredivisie,FC Volendam,D,L,L,W,L,L,D,L,L,D,L,L,L,L,W,W,L,D,W,D,L,W,L,W,L,W,D,L,L,W,L,W,L,P,P,P,P,P
+Eredivisie,FC Twente '65,W,W,W,L,W,D,L,W,L,W,W,W,D,D,W,D,W,D,D,D,W,L,L,D,W,W,D,W,L,D,W,W,W,P,P,P,P,P
+Eredivisie,AFC Ajax,W,W,W,W,W,W,L,D,W,W,W,D,L,D,D,D,D,D,W,W,W,W,W,W,W,L,D,W,W,L,D,W,W,P,P,P,P,P
+Eredivisie,Sparta Rotterdam,D,L,L,W,W,L,W,D,W,W,L,W,W,D,D,W,W,D,D,D,W,L,L,W,W,W,L,W,W,D,L,L,W,P,P,P,P,P
+Ligue 1,Olympique Lyonnais,W,L,W,D,W,W,L,L,L,D,L,W,W,L,D,W,L,D,L,W,D,W,W,L,W,D,D,D,W,W,W,L,W,W,L,W,P,P
+Ligue 1,RC Strasbourg Alsace,L,D,D,L,D,D,D,L,L,W,L,D,D,L,D,L,L,D,W,L,L,W,L,W,D,L,D,W,L,L,W,W,L,W,W,D,P,P
+Ligue 1,Clermont Foot 63,L,W,W,L,L,W,D,L,W,W,D,L,D,D,L,L,W,W,W,D,D,L,L,L,D,W,L,L,W,W,W,W,W,D,W,L,P,P
+Ligue 1,Toulouse FC,D,W,D,L,L,L,W,L,W,D,W,D,L,L,L,L,W,W,D,W,W,L,W,L,L,L,W,L,L,W,L,W,L,D,D,D,P,P
+Ligue 1,Racing Club de Lens,W,D,W,W,W,D,W,D,W,L,W,W,W,W,W,D,W,D,W,D,L,D,L,W,D,D,W,W,W,W,L,W,W,W,W,W,P,P
+Ligue 1,Montpellier HSC,W,L,L,W,W,L,L,W,L,L,L,L,L,D,D,W,L,L,L,W,L,L,W,W,D,W,W,W,D,L,L,W,W,L,D,W,P,P
+Ligue 1,Lille OSC,W,D,L,W,L,W,L,W,L,W,W,W,L,D,W,W,D,D,W,L,D,W,W,L,W,D,D,W,W,L,W,D,W,L,D,W,P,P
+Ligue 1,Angers SCO,D,D,L,L,L,L,W,W,L,L,L,L,L,L,L,L,L,L,L,L,L,D,D,L,L,L,L,L,D,W,L,L,L,L,L,D,P,P
+Ligue 1,Stade Rennais FC 1901,L,D,W,L,W,D,W,D,W,W,W,W,W,D,W,L,W,L,W,L,W,L,L,W,W,L,D,W,L,L,W,L,W,L,W,W,P,P
+Ligue 1,Olympique de Marseille,W,D,W,W,W,W,W,D,W,L,L,L,D,W,W,W,W,W,W,D,W,L,W,W,L,W,D,W,D,D,W,W,W,L,W,L,P,P
+Ligue 1,FC Nantes,D,D,L,W,D,L,L,D,L,L,W,D,D,L,D,D,W,D,W,D,L,W,W,L,L,L,D,D,L,D,L,D,L,L,D,L,P,P
+Ligue 1,AS Monaco FC,W,D,L,D,L,W,W,W,W,W,D,L,W,W,L,W,W,D,W,D,W,W,W,W,L,D,L,W,W,D,W,L,L,W,D,L,P,P
+Ligue 1,Paris Saint-Germain FC,W,W,W,D,W,W,W,W,W,D,W,W,W,W,W,W,L,W,L,D,W,W,L,W,W,W,W,L,L,W,W,W,L,W,W,W,P,P
+Ligue 1,ES Troyes AC,L,L,L,W,W,D,L,W,D,L,D,D,L,D,L,D,W,L,L,D,L,L,L,L,L,D,L,D,L,L,L,D,L,L,L,D,P,P
+Ligue 1,Stade de Reims,L,L,D,D,W,D,L,L,D,D,D,W,D,W,D,W,D,W,D,D,W,D,W,D,W,W,W,L,W,D,L,L,L,W,L,D,P,P
+Ligue 1,AJ Auxerre,L,D,W,W,L,L,L,L,D,L,D,L,W,D,L,L,L,L,L,L,L,D,D,W,W,D,D,L,W,W,W,D,L,D,L,L,P,P
+Ligue 1,AC Ajaccio,L,D,L,L,L,L,L,W,L,W,D,L,L,W,D,W,L,L,L,L,W,L,L,L,W,L,L,L,L,L,L,D,L,D,L,L,P,P
+Ligue 1,OGC Nice,D,D,L,L,W,L,W,L,L,W,D,D,W,W,D,D,L,W,D,W,W,W,W,D,W,D,D,D,D,L,L,L,W,W,L,D,P,P
+Ligue 1,Stade Brestois 29,L,D,W,L,L,D,L,L,D,L,L,W,D,L,W,L,L,D,D,W,D,D,L,L,L,W,L,D,W,D,W,D,W,L,W,W,P,P
+Ligue 1,FC Lorient,W,W,D,W,L,W,W,W,W,W,D,D,L,L,D,L,W,D,L,W,L,D,L,W,L,D,W,D,L,D,L,L,W,W,D,L,P,P
+Premier League,Crystal Palace FC,L,D,W,L,D,D,D,L,L,W,D,W,L,W,W,L,L,W,L,L,D,L,D,D,D,L,L,L,W,W,W,D,L,W,L,W,D,P
+Premier League,Fulham FC,D,D,W,L,W,L,W,W,L,L,D,W,W,D,L,L,W,W,W,L,L,D,W,W,D,L,L,L,L,L,W,W,L,L,W,W,D,P
+Premier League,Tottenham Hotspur FC,W,D,W,W,D,W,L,W,L,W,W,L,L,W,L,W,D,L,W,L,W,W,L,W,W,L,W,D,D,W,L,L,D,L,W,L,L,P
+Premier League,Newcastle United FC,W,D,D,D,L,D,W,D,W,W,D,W,W,W,W,W,W,D,D,W,D,D,D,L,W,L,W,W,W,W,L,W,W,W,L,D,D,P
+Premier League,Leeds United FC,W,D,W,L,D,L,W,D,D,L,L,L,L,W,W,L,L,D,D,L,D,L,L,L,W,L,D,W,L,L,L,L,D,L,L,D,L,P
+Premier League,AFC Bournemouth,W,L,L,L,D,W,L,D,D,W,D,L,L,L,L,W,L,L,L,L,D,L,D,W,L,L,W,L,W,W,W,L,W,W,L,L,L,P
+Premier League,Everton FC,L,L,D,D,D,D,L,W,W,L,L,L,W,D,L,L,L,D,L,L,L,W,L,W,L,D,W,D,D,L,L,D,L,D,W,L,D,P
+Premier League,Manchester United FC,L,L,W,W,W,W,D,D,L,W,D,W,D,W,L,W,W,W,W,W,L,W,W,W,W,L,D,L,L,W,W,D,W,L,W,W,P,P
+Premier League,Leicester City FC,D,L,L,L,L,L,L,L,W,L,D,W,W,L,W,W,L,L,L,L,D,W,W,L,L,L,L,D,L,L,L,W,D,D,L,L,D,P
+Premier League,West Ham United FC,L,L,L,W,D,L,L,L,W,W,D,L,W,L,L,L,L,L,D,L,W,D,D,L,W,L,D,L,W,W,D,W,L,L,W,L,W,P
+Premier League,Aston Villa FC,L,W,L,L,L,D,W,W,D,D,L,L,W,L,W,W,L,W,D,W,W,L,L,L,W,W,D,W,W,W,W,D,W,L,L,W,D,P
+Premier League,Wolverhampton Wanderers FC,L,D,L,D,D,W,L,L,L,L,W,L,L,D,L,L,W,L,D,W,L,W,W,L,D,W,L,L,D,W,W,L,W,L,W,L,D,P
+Premier League,Southampton FC,L,D,W,L,W,L,L,L,L,L,D,W,D,L,L,L,L,L,L,W,L,L,L,W,L,W,D,D,L,L,L,D,L,L,L,L,L,P
+Premier League,Manchester City FC,W,W,D,W,W,D,W,W,W,W,L,W,W,W,W,L,W,D,W,L,W,L,W,D,W,W,W,W,W,W,W,W,W,W,W,W,P,P
+Premier League,Brighton & Hove Albion FC,W,D,W,W,L,W,W,W,D,L,L,D,L,W,W,L,W,L,W,W,D,W,D,L,L,W,D,W,D,L,W,L,W,L,W,W,P,P
+Premier League,Arsenal FC,W,W,W,W,W,L,W,W,W,W,W,L,D,W,W,W,W,W,D,W,W,L,D,W,W,W,W,W,W,D,D,D,L,W,W,L,L,P
+Premier League,Brentford FC,D,W,L,D,D,W,W,L,D,L,W,D,L,D,D,W,D,W,W,W,D,W,D,D,L,W,L,D,D,L,L,D,W,W,L,W,W,P
+Premier League,Nottingham Forest FC,L,W,D,L,L,L,L,L,L,D,L,D,W,L,D,W,L,D,W,W,D,W,L,D,L,D,L,L,D,L,L,L,W,L,W,D,W,P
+Premier League,Chelsea FC,W,D,L,W,L,W,L,D,W,W,W,D,D,L,L,L,W,D,L,W,D,D,D,L,L,W,W,D,L,L,L,L,L,W,D,L,P,P
+Premier League,Liverpool FC,D,D,L,W,W,D,W,D,D,L,W,W,L,L,W,W,W,W,L,L,D,L,W,W,D,W,L,W,L,D,W,W,W,W,W,W,D,P
+Primeira Liga,Sport Lisboa e Benfica,W,W,W,W,W,W,W,D,W,W,W,W,W,L,W,D,W,W,W,W,W,W,W,W,W,W,L,L,W,W,W,W,D,P,P,P,P,P
+Primeira Liga,Rio Ave FC,L,L,D,W,D,L,D,W,L,W,L,W,W,D,D,L,D,L,L,W,L,W,L,W,W,L,D,D,L,W,D,L,L,P,P,P,P,P
+Primeira Liga,GD Estoril Praia,W,L,D,W,L,W,D,D,W,L,D,L,L,W,L,W,L,L,L,L,L,L,L,L,L,W,L,L,L,W,L,W,D,P,P,P,P,P
+Primeira Liga,FC Porto,W,W,W,L,W,W,D,W,W,L,D,W,W,W,D,W,W,W,W,W,W,L,W,W,D,W,W,W,W,W,W,W,W,P,P,P,P,P
+Primeira Liga,CD Santa Clara,D,L,L,L,W,L,D,L,L,W,D,D,W,L,L,D,L,L,D,L,L,L,L,L,L,L,L,L,D,L,W,L,W,P,P,P,P,P
+Primeira Liga,Sporting Clube de Braga,D,W,W,W,W,W,W,L,L,W,W,L,W,W,W,W,W,L,W,W,W,L,W,W,D,W,W,W,W,W,L,W,D,P,P,P,P,P
+Primeira Liga,GD Chaves,L,W,D,W,D,L,L,D,W,W,L,D,W,L,D,D,D,L,W,D,L,L,L,W,W,L,D,W,D,W,W,W,L,P,P,P,P,P
+Primeira Liga,Portimonense SC,L,W,W,W,W,L,W,L,L,L,D,W,L,L,L,D,L,L,W,L,W,L,L,L,L,L,D,W,W,L,D,L,L,P,P,P,P,P
+Primeira Liga,Gil Vicente FC,W,L,D,D,L,W,D,L,L,L,L,L,L,W,L,W,W,L,D,W,D,W,W,L,D,L,D,L,L,L,L,W,L,P,P,P,P,P
+Primeira Liga,FC Famalicão,L,L,D,W,L,L,L,W,L,W,L,D,L,W,W,L,D,W,L,L,W,W,L,W,W,L,W,W,W,L,L,D,L,P,P,P,P,P
+Primeira Liga,Casa Pia AC,D,L,W,W,D,W,W,W,L,L,W,W,L,W,D,L,L,W,L,D,D,L,W,L,W,L,L,D,L,L,D,L,D,P,P,P,P,P
+Primeira Liga,Sporting Clube de Portugal,D,W,L,L,W,W,L,W,W,W,L,W,W,W,L,D,W,W,W,L,W,W,W,W,D,W,W,D,W,W,W,W,D,P,P,P,P,P
+Primeira Liga,Boavista FC,W,W,L,L,W,W,W,L,D,L,D,L,L,L,W,L,D,W,D,D,L,W,D,L,L,L,W,D,W,L,W,L,D,P,P,P,P,P
+Primeira Liga,FC Vizela,W,L,D,D,L,L,L,W,W,L,D,L,W,W,L,W,L,W,L,D,D,L,W,L,W,W,W,D,L,L,L,D,L,P,P,P,P,P
+Primeira Liga,Vitória SC,W,W,L,L,L,W,D,D,W,W,W,L,W,L,D,L,L,W,W,W,D,W,W,L,L,D,L,L,L,W,W,W,W,P,P,P,P,P
+Primeira Liga,CS Marítimo,L,L,L,L,L,L,L,L,D,D,W,D,L,D,W,L,W,L,L,L,L,W,L,L,L,W,L,W,L,L,D,L,W,P,P,P,P,P
+Primeira Liga,FC Arouca,L,W,W,L,D,L,D,D,W,D,W,W,L,L,W,D,W,L,D,W,L,W,D,W,D,W,W,D,W,L,L,L,W,P,P,P,P,P
+Primeira Liga,FC Paços de Ferreira,L,L,L,L,L,L,D,D,L,L,L,L,L,L,D,W,L,W,L,L,W,L,L,W,D,D,L,L,L,W,L,L,W,P,P,P,P,P
+Primera Division,CA Osasuna,W,W,L,W,W,L,D,L,L,W,D,W,W,L,L,D,W,D,L,D,D,L,W,D,L,L,D,W,L,W,W,L,L,W,L,P,P,P
+Primera Division,RC Celta de Vigo,D,L,W,W,L,L,W,L,L,L,D,L,L,D,D,W,D,L,W,W,L,D,W,D,W,W,D,D,L,L,W,L,L,L,L,D,P,P
+Primera Division,Real Valladolid CF,L,D,L,W,L,L,W,D,L,W,W,L,W,L,L,L,L,L,W,W,D,L,L,W,D,L,L,D,W,W,L,L,L,L,L,P,P,P
+Primera Division,FC Barcelona,D,W,W,W,W,W,W,W,L,W,W,W,W,W,D,W,W,W,W,W,W,W,L,W,W,W,W,D,D,W,L,W,W,W,L,P,P,P
+Primera Division,Cádiz CF,L,L,L,L,L,W,D,D,D,D,L,W,D,L,D,W,D,L,W,L,W,L,W,D,D,D,L,W,L,D,L,W,L,L,W,P,P,P
+Primera Division,Valencia CF,W,L,L,W,L,W,D,W,D,D,L,L,D,W,L,L,L,D,L,L,L,L,W,L,W,L,D,L,L,W,W,L,D,W,W,P,P,P
+Primera Division,UD Almería,L,D,W,L,L,L,L,W,L,W,L,W,L,W,D,L,D,D,W,L,L,L,W,L,L,D,D,W,L,L,W,L,W,L,W,L,P,P
+Primera Division,Athletic Club,D,W,W,L,W,W,W,D,L,D,L,W,L,W,D,D,L,L,L,W,W,L,L,D,L,W,D,W,W,W,L,D,L,L,W,P,P,P
+Primera Division,Getafe CF,L,L,D,L,W,W,L,L,D,D,D,W,D,L,W,L,L,L,L,D,D,W,L,W,D,W,D,L,D,L,L,L,W,L,D,P,P,P
+Primera Division,Real Betis Balompié,W,W,W,L,W,W,L,D,W,D,L,W,D,L,D,W,L,L,W,L,W,W,W,D,D,W,L,L,W,L,D,L,W,W,D,P,P,P
+Primera Division,RCD Espanyol de Barcelona,D,L,L,W,L,L,D,D,W,L,D,D,D,L,D,D,W,W,L,D,L,W,W,L,L,L,L,L,L,D,L,W,L,L,W,P,P,P
+Primera Division,Sevilla FC,L,D,L,L,W,D,L,D,W,D,L,L,D,L,D,W,L,W,W,L,W,D,L,L,W,L,W,D,W,W,W,L,W,W,D,P,P,P
+Primera Division,RCD Mallorca,D,L,W,D,L,W,L,D,L,L,W,D,W,W,L,W,L,W,L,W,L,W,L,L,D,L,D,D,W,W,L,D,L,W,L,P,P,P
+Primera Division,Club Atlético de Madrid,W,L,W,D,W,L,W,W,W,D,W,L,D,L,W,L,D,W,W,D,W,W,D,W,W,W,W,W,W,L,W,W,W,L,W,P,P,P
+Primera Division,Real Sociedad de Fútbol,W,L,W,D,L,W,W,W,W,W,L,L,D,W,W,W,W,W,D,L,W,D,L,D,D,W,L,W,L,W,D,W,W,D,W,W,P,P
+Primera Division,Elche CF,L,D,L,L,L,L,L,D,D,L,D,L,L,L,L,L,D,D,L,W,L,L,L,W,D,L,L,L,L,L,L,W,L,W,D,P,P,P
+Primera Division,Girona FC,L,W,L,D,W,L,L,L,D,L,D,D,W,W,D,D,W,L,L,W,L,W,W,L,L,D,W,D,W,L,W,W,W,D,L,D,P,P
+Primera Division,Rayo Vallecano de Madrid,D,W,L,L,W,L,W,L,D,D,W,W,W,D,D,L,W,L,W,W,D,D,L,D,L,D,D,L,W,L,W,L,W,L,L,P,P,P
+Primera Division,Real Madrid CF,W,W,W,W,W,W,D,W,W,W,W,D,L,W,W,L,W,W,D,L,W,W,D,D,W,L,W,L,W,W,L,W,L,W,L,P,P,P
+Primera Division,Villarreal CF,W,W,D,W,L,D,D,L,W,L,W,L,L,W,W,W,D,W,L,L,L,L,W,W,D,W,W,W,L,L,W,W,D,W,W,P,P,P
+Serie A,UC Sampdoria,L,D,L,D,L,L,L,L,D,L,W,L,L,L,L,W,L,L,L,L,D,D,L,L,D,L,W,L,L,D,D,L,L,L,D,L,P,P
+Serie A,AC Milan,W,D,W,D,W,W,L,W,W,W,W,L,W,D,W,W,D,D,L,L,L,W,W,W,L,D,L,W,D,D,W,D,D,W,L,W,P,P
+Serie A,US Lecce,L,L,D,D,L,D,W,D,L,D,L,L,D,W,W,W,D,D,L,L,W,D,W,L,L,L,L,L,L,D,L,W,L,L,D,D,P,P
+Serie A,AC Monza,L,L,L,L,L,D,W,W,W,L,L,L,W,L,W,D,D,W,D,W,D,W,L,L,W,D,D,L,D,W,W,W,D,D,W,W,P,P
+Serie A,ACF Fiorentina,W,D,D,L,D,L,W,L,L,D,L,W,W,W,L,D,W,L,L,D,L,L,D,W,W,W,W,W,D,D,L,W,D,L,W,D,P,P
+Serie A,SS Lazio,W,D,W,D,L,W,W,W,W,D,W,L,W,W,L,L,D,W,W,D,D,L,W,W,W,D,W,W,W,W,L,L,W,L,D,W,P,P
+Serie A,US Salernitana 1919,L,D,W,D,D,D,L,L,W,L,W,W,D,L,L,L,D,L,L,W,L,L,L,W,D,D,D,D,D,D,W,D,D,L,W,D,P,P
+Serie A,Spezia Calcio,W,L,D,L,D,L,W,L,L,D,L,L,L,D,W,D,D,W,L,L,L,D,L,D,D,W,L,D,D,L,D,L,L,L,W,D,P,P
+Serie A,Hellas Verona FC,L,D,L,D,W,L,L,L,L,L,L,L,L,L,L,D,W,L,W,D,D,W,L,L,D,D,L,L,W,D,W,D,L,W,L,L,P,P
+Serie A,Juventus FC,W,D,D,W,D,D,L,W,L,W,W,W,W,W,W,W,W,L,D,L,W,W,W,W,L,W,W,W,L,L,L,D,W,W,W,L,P,P
+Serie A,Udinese Calcio,L,D,W,W,W,W,W,W,D,D,L,D,D,D,L,D,L,L,W,D,L,D,L,D,D,W,W,L,D,L,W,L,D,W,L,L,P,P
+Serie A,Torino FC,W,D,W,L,W,L,L,L,D,L,W,W,L,W,D,D,D,L,W,D,W,L,D,L,W,W,L,D,L,D,W,L,W,D,W,D,P,P
+Serie A,US Sassuolo Calcio,L,W,D,D,D,L,W,W,L,L,W,L,L,D,L,L,L,L,D,W,W,D,L,W,W,W,W,D,L,W,L,W,L,D,L,L,P,P
+Serie A,FC Internazionale Milano,W,W,L,W,L,W,L,L,W,W,W,W,L,W,W,W,D,W,L,W,W,D,W,L,W,L,L,L,D,L,W,W,W,W,W,L,P,P
+Serie A,SSC Napoli,W,W,D,D,W,W,W,W,W,W,W,W,W,W,W,L,W,W,W,W,W,W,W,W,L,W,W,L,W,D,W,D,D,W,L,W,P,P
+Serie A,Empoli FC,L,D,D,D,D,L,W,L,D,W,L,L,W,L,W,D,D,W,W,D,L,D,D,L,L,L,L,W,D,L,L,L,W,W,D,W,P,P
+Serie A,Bologna FC 1909,L,D,L,D,D,W,L,L,D,L,W,W,W,L,W,L,L,W,D,W,W,L,W,W,L,D,D,W,W,D,L,D,L,D,D,W,P,P
+Serie A,Atalanta BC,W,D,W,W,W,D,W,W,D,W,L,W,L,L,L,D,W,W,D,W,L,W,L,L,D,L,W,W,L,D,W,W,W,L,L,W,P,P
+Serie A,AS Roma,W,W,D,W,L,W,L,W,W,W,L,W,L,D,D,W,D,W,W,L,W,D,W,L,W,L,L,W,W,W,L,D,D,L,D,D,P,P
+Serie A,US Cremonese,L,L,L,L,D,D,L,D,L,D,L,D,D,D,L,L,L,L,D,L,L,L,D,W,L,L,D,L,W,W,L,D,D,W,L,L,P,P
