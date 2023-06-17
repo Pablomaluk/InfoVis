@@ -9,61 +9,48 @@ d3.select("#result-filter").on("change", (event) => {
     createChart(document.getElementById("league-filter").value, event.target.value);
 })
 
+const x = d3.scaleLinear().domain([1, 39]).range([0, 760]);
+const y = d3.scaleLinear().domain([0, 20]).range([500, 0]);
+const xAxis = d3.axisBottom(x).ticks(38).tickSize(0);
+const xAxisGrid = d3.axisBottom(x).tickSize(-527.5).tickFormat('').ticks(38);
+const yAxisGrid = d3.axisLeft(y).tickSize(-970).tickFormat('').ticks(21);
+
+svg.append("g")
+    .attr("id", "xAxis")
+    .attr("transform", "translate(220, 7.5)")
+    .call(xAxis).style("font-weight", "bold");
+
+svg.append("g")
+    .style("opacity", 0.5)
+    .attr("id", "xAxisGrid")
+    .attr("transform", "translate(210, 527.5)")
+    .call(xAxisGrid)
+    .call(g => {
+        g.selectAll("line").style("opacity", 0.5)
+    });
+
+svg.append("g")
+    .style("opacity", 0.5)
+    .attr("id", "yAxisGrid")
+    .attr("transform", "translate(0, 27.5)")
+    .call(yAxisGrid)
+    .call(g => {
+        g.selectAll("line").style("opacity", 0.5)
+    });
+
+svg.append("text")
+    .attr("x", 200)
+    .attr("y", 17.5)
+    .text("Equipo")
+    .style("font-size", "15px")
+    .style("font-weight", "bold")
+    .attr("text-anchor", "end");
+
+
 function createChart(league, result) {
-    svg.append("text")
-        .attr("x", 200)
-        .attr("y", 20)
-        .text("Equipo")
-        .style("font-size", "15px")
-        .style("font-weight", "bold")
-        .attr("text-anchor", "end");
-    
-    svg.append("line")
-        .attr("id", 'grid_line')
-        .attr("x1", 0)
-        .attr("y1", 27.5)
-        .attr("x2", 970)
-        .attr("y2", 27.5)
-        .attr("stroke", "grey")
-        .attr("stroke-width", 1)
-        .attr("opacity", 0.5);
 
     d3.csv("data/results.csv").then((data) => {
         console.log(data);
-
-        svg.selectAll(".matchday")
-        .data(data.slice(0, 39))
-        .join(
-            enter => {
-                const G2 = enter.append("g")
-                    .attr("id", (_, i) => `matchday_${i+1}`)
-                    .attr("class", "matchday")
-
-                    G2.append("line")
-                    .attr("x1", (_, i) =>  i * 20 + 210)
-                    .attr("y1", 0)
-                    .attr("x2", (_, i) =>  i * 20 + 210)
-                    .attr("y2", 527)
-                    .attr("stroke", "grey")
-                    .attr("stroke-width", 1)
-                    .attr("opacity", 0.5);
-                    
-                    G2.append("text")
-                    .attr("x", (_, i) =>  i * 20 + 220)
-                    .attr("y", 20)
-                    .text((_, i) => {
-                        if (i == 38){
-                            return ""
-                        }
-                        else {
-                            return `${i+1}`
-                        }
-                    })
-                    .style("font-size", "10px")
-                    .style("font-weight", "bold")
-                    .attr("text-anchor", "middle");
-            },
-        )
             
         svg.selectAll(".team_group")
         .data(data.filter(d => d.league_name == league))
@@ -82,17 +69,6 @@ function createChart(league, result) {
                     .text((d) => `${d.team_name}`)
                     .style("font-size", "15px")
                     .attr("text-anchor", "end");
-                
-                G.append("line")
-                    .attr("id", (d) => `${d.team_name}_line`)
-                    .attr("class", "team_line")
-                    .attr("x1", 0)
-                    .attr("y1", 27.5)
-                    .attr("x2", 970)
-                    .attr("y2",  27.5)
-                    .attr("stroke", "grey")
-                    .attr("stroke-width", 1)
-                    .attr("opacity", 0.5);
                 
                 G.selectAll(".team_group_rect")
                     .data(d => {
@@ -139,9 +115,6 @@ function createChart(league, result) {
                     .transition()
                     .duration(500)
                     .text((d) => `${d.team_name}`)
-                
-                update.select(".team_line")
-                    .attr("id", (d) => `${d.team_name}_line`)
 
                 update.selectAll("team_group_rect")
                     .data(d => {
