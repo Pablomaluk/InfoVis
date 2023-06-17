@@ -19,10 +19,20 @@
     </div>
 
     <h1>Visualización 3</h1>
-    <p>Win streak</p>
+    <p>Aquí puedes visualizar todos los resultados de los equipos según su liga y el resultado que se quiera observar</p>
+    
+    <!-- Esto define el relleno de los partidos 35 a 38 en las ligas que tienen solo 34 partidos -->
+    <svg viewBox="0 0 80 1" color="grey">
+        <defs>
+            <pattern id="diagonalHatch" patternUnits="userSpaceOnUse" width="4" height="4">
+                <path d="M-1,1 l2,-2 M0,4 l4,-4 M3,5 l2,-2" style="stroke:currentColor; stroke-width:1"></path>
+            </pattern>
+        </defs>
+    </svg>
+
     <div class="selector">
         <span>Escoge una liga: </span>
-        <select id="league-filter">
+        <select id="league-filter" class="filter">
             <option value="Premier League" selected>Premier League</option>
             <option value="Bundesliga">Bundesliga</option>
             <option value="Eredivisie">Eredivisie</option>
@@ -30,6 +40,16 @@
             <option value="Primera Division">La Liga</option>
             <option value="Primeira Liga">Liga Portugal</option>
             <option value="Serie A">Serie A</option>
+        </select>
+    </div>
+    <br>
+    <div class="selector">
+        <span>Escoge un parámetro: </span>
+        <select id="result-filter" class="filter">
+            <option value="Wins" selected>Victorias</option>
+            <option value="Draws">Empates</option>
+            <option value="Losses">Derrotas</option>
+            <option value="All">Todos</option>
         </select>
     </div>
     <div id="vis_3"> 

@@ -46,3 +46,10 @@ img{
     margin-bottom: 5em;
     margin-top: 2em;
 }
+
+.filter{
+    background-color: #f9d3a7;
+    border: solid black 1px;
+    border-radius: 8px;
+    padding: 2px;
+}
