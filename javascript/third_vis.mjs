@@ -1,15 +1,12 @@
 const svg = d3.select("#vis_3").append("svg");
 svg.attr("width", 970).attr("height", 527.5).style("border", "1px solid black");
 
-d3.select("#league-filter").on("change", (event) => {
-    createChart(event.target.value, document.getElementById("result-filter").value);
-})
 
 d3.select("#result-filter").on("change", (event) => {
-    createChart(document.getElementById("league-filter").value, event.target.value);
+    createChart3(document.getElementById("league-filter").value, event.target.value);
 })
 
-function createChart(league, result) {
+function createChart3(league, result) {
     svg.append("text")
         .attr("x", 200)
         .attr("y", 20)
@@ -198,4 +195,4 @@ function createChart(league, result) {
     });
 }
     
-createChart("Premier League", "Wins");
+export { createChart3 };

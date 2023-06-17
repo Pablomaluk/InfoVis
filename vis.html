@@ -8,8 +8,37 @@
     <title>Visualización</title>
 </head>
 <body>
+    <div class="selector">
+        <span>Escoge una liga: </span>
+        <select id="league-filter" class="filter">
+            <option value="Premier League" selected>Premier League</option>
+            <option value="Bundesliga">Bundesliga</option>
+            <option value="Eredivisie">Eredivisie</option>
+            <option value="Ligue 1">Ligue 1</option>
+            <option value="Primera Division">La Liga</option>
+            <option value="Primeira Liga">Liga Portugal</option>
+            <option value="Serie A">Serie A</option>
+        </select>
+    </div>
     <h1>Visualización 1</h1>
     <p>Diagrama de caja y bigotes</p>
+    <br>
+    <div class="selector">
+        <span>Goles anotados por: </span>
+        <select id="score-team-filter-vis-1" class="filter">
+            <option value="Both" selected>Ambos equipos</option>
+            <option value="Home Team">Equipo Local</option>
+            <option value="Away Team">Equipo Visitante</option>
+        </select>
+    </div>
+    <div class="selector">
+        <span>Goles anotados en: </span>
+        <select id="score-time-filter-vis-1" class="filter">
+            <option value="Full Time" selected>Tiempo Completo</option>
+            <option value="First Half">Primer Tiempo</option>
+            <option value="Second Half">Segundo Tiempo</option>
+        </select>
+    </div>
     <div id="vis_1"> 
     </div>
 
@@ -29,33 +58,21 @@
             </pattern>
         </defs>
     </svg>
-
-    <div class="selector">
-        <span>Escoge una liga: </span>
-        <select id="league-filter" class="filter">
-            <option value="Premier League" selected>Premier League</option>
-            <option value="Bundesliga">Bundesliga</option>
-            <option value="Eredivisie">Eredivisie</option>
-            <option value="Ligue 1">Ligue 1</option>
-            <option value="Primera Division">La Liga</option>
-            <option value="Primeira Liga">Liga Portugal</option>
-            <option value="Serie A">Serie A</option>
-        </select>
-    </div>
     <br>
     <div class="selector">
-        <span>Escoge un parámetro: </span>
+        <span>Resultados a mostrar: </span>
         <select id="result-filter" class="filter">
-            <option value="Wins" selected>Victorias</option>
+            <option value="All" selected>Todos</option>
+            <option value="Wins">Victorias</option>
             <option value="Draws">Empates</option>
             <option value="Losses">Derrotas</option>
-            <option value="All">Todos</option>
         </select>
     </div>
     <div id="vis_3"> 
     </div>
-    <script src="javascript/first_vis.js"></script>
+    <script src="javascript/parent_vis.mjs" type="module"></script>
+    <script src="javascript/first_vis.mjs" type="module"></script>
     <script src="javascript/second_vis.js"></script>
-    <script src="javascript/third_vis.js"></script>
+    <script src="javascript/third_vis.mjs" type="module"></script>
 </body>
 </html>
