@@ -15,7 +15,8 @@ const yAxisGrid = d3.axisLeft(y).tickSize(-970).tickFormat('').ticks(21);
 svg.append("g")
     .attr("id", "xAxis")
     .attr("transform", "translate(220, 7.5)")
-    .call(xAxis).style("font-weight", "bold");
+    .call(xAxis).style("font-weight", "bold")
+    .call(g => g.select(".domain").remove());
 
 svg.append("g")
     .style("opacity", 0.5)
@@ -44,7 +45,7 @@ svg.append("text")
     .attr("text-anchor", "end");
 
 
-function createChart(league, result) {
+function createChart3(league, result) {
 
     d3.csv("data/results.csv").then((data) => {
         console.log(data);
