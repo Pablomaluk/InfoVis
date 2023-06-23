@@ -57,3 +57,24 @@ img{
 .selector{
     margin: 30px;
 }
+
+.button {
+    background-color: #f9d3a7;
+    border: solid black 1px;
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.button:hover{
+    cursor: pointer;
+}
+
+.team_info{
+    background-color: #f9d3a7;
+    border: solid black 1px;
+}
+
+.tooltip {
+    opacity: 0;
+}

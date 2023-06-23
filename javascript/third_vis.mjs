@@ -50,13 +50,13 @@ function createChart3(league, result) {
     d3.csv("data/results.csv").then((data) => {
         console.log(data);
             
-        svg.selectAll(".team_group")
+        svg.selectAll(".result_group")
         .data(data.filter(d => d.league_name == league))
         .join(
             enter => {
                 const G = enter.append("g")
                     .attr("id", (_, i) => `team_${i}`)
-                    .attr("class", "team_group")
+                    .attr("class", "result_group")
                     .attr("transform", (_, i) => `translate(0, ${(i+1) * 25})`)
 
                 G.append("text")
@@ -68,7 +68,7 @@ function createChart3(league, result) {
                     .style("font-size", "15px")
                     .attr("text-anchor", "end");
                 
-                G.selectAll(".team_group_rect")
+                G.selectAll(".result_group_rect")
                     .data(d => {
                         let a = [...Array(38).keys()].map(i => d[i+1]);
                         return a
@@ -78,7 +78,7 @@ function createChart3(league, result) {
                             // console.log(enter);
                             let rects = enter.append("rect");
 
-                            rects.attr("class", "team_group_rect")
+                            rects.attr("class", "result_group_rect")
                                 .attr("class", "result_rect")
                                 .attr("x", (_, j) => 210 + 20 * (j))
                                 .attr("y", 2.5)
@@ -114,7 +114,7 @@ function createChart3(league, result) {
                     .duration(500)
                     .text((d) => `${d.team_name}`)
 
-                update.selectAll("team_group_rect")
+                update.selectAll("result_group_rect")
                     .data(d => {
                         let a = [...Array(38).keys()].map(i => d[i+1]);
                         return a
@@ -129,7 +129,7 @@ function createChart3(league, result) {
                             
                             let rects = enter.append("rect");
                                 
-                            rects.attr("class", "team_group_rect")
+                            rects.attr("class", "result_group_rect")
                                 .attr("class", "result_rect")
                                 .attr("x", (_, j) => 210 + 20 * (j))
                                 .attr("y", 2.5)

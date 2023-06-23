@@ -1,131 +1,27 @@
 const svg2 = d3.select("#vis_2").append("svg");
 const WIDTH = 900;
-const HEIGHT = 500;
+const HEIGHT = 1400;
 
-svg2.attr("width", WIDTH).attr("height", HEIGHT);
+svg2.attr("width", WIDTH).attr("height", HEIGHT).style("border", "1px solid black");
 
 d3.select("#matchday-filter").on("change", (event) => {
     createChart2(document.getElementById("league-filter").value, event.target.value);
 })
 
+d3.select("#reset-button").on("click", (event) => {
+    svg2.selectAll(".team_group").remove();
+    createChart2(document.getElementById("league-filter").value, document.getElementById("matchday-filter").value);
+})
+
 let radialScale = d3.scaleLinear()
     .domain([0, 4])
-    .range([0, 200]);
-
-svg2.selectAll("grid_circle_group")
-    .data([1, 2, 3, 4])
-    .join(
-        enter => {
-            let group = enter.append("g")
-                .attr("class", "grid_circle_group")
-
-            group.append("circle")
-                .attr("class", "grid_circle")
-                .attr("cx", WIDTH / 2)
-                .attr("cy", HEIGHT / 2)
-                .attr("fill", "transparent")
-                .attr("stroke", (_, i) => i == 3 ? "black" : "gray")
-                .attr("r", d => radialScale(d))
-        }
-    );
-
-svg2.selectAll(".grid_line")
-    .data(["last5_fulltime_goals_for_mean", "last5_1sthalf_goals_for_mean", "last5_2ndhalf_goals_for_mean", "last5_fulltime_goals_against_mean", "last5_1sthalf_goals_against_mean", "last5_2ndhalf_goals_against_mean"])
-    .join(
-        enter => {
-            // console.log("enter");
-            let G2 = enter.append("g")
-                .attr("id", (_, i) => `grid_line_${i}`)
-                .attr("class", "grid_line")
-            
-            G2.append("line")
-                .attr("id", (_, i) => `grid_line_${i}`)
-                .attr("class", "grid_line")
-                .attr("x1", WIDTH / 2)
-                .attr("y1", HEIGHT / 2)
-                .attr("x2", (_, i) => {
-                    let x = Math.cos(((i - 2.5) * -60) * (Math.PI / 180)) * 200;
-                    return WIDTH / 2 + x;
-                }
-                )
-                .attr("y2", (_, i) => {
-                    let y = Math.sin(((i - 2.5) * -60) * (Math.PI / 180)) * 200;
-                    return HEIGHT / 2 - y;
-                }
-                )
-                .attr("stroke", "gray")
-                .attr("stroke-width", 1)
-                .style("stroke-dasharray", ("3, 3"))
-            
-            G2.append("text")
-                .attr("id", (_, i) => `grid_text_${i}`)
-                .attr("class", "grid_text")
-                .attr("x", (_, i) => {
-                    let x = Math.cos(((i - 2.5) * -60) * (Math.PI / 180)) * 215;
-                    return WIDTH / 2 + x;
-                }
-                )
-                .attr("y", (_, i) => {
-                    let y = Math.sin(((i - 2.5) * -60) * (Math.PI / 180)) * 215;
-                    return HEIGHT / 2 - y;
-                }
-                )
-                .attr("text-anchor", "middle")
-                .attr("dominant-baseline", "middle")
-                .attr("font-size", "12px")
-                .attr("fill", "gray")
-                .attr("transform", (_, i) => {
-                    let x = Math.cos(((i - 2.5) * -60) * (Math.PI / 180)) * 215;
-                    let y = Math.sin(((i - 2.5) * -60) * (Math.PI / 180)) * 215;
-                    return `rotate(${((i % 3) * 60) - 60}, ${WIDTH / 2 + x}, ${HEIGHT / 2 - y})`;
-                }
-                )
-                .text(d => {
-                    switch (d) {
-                        case "last5_fulltime_goals_for_mean":
-                            return "Tiempo Completo";
-                        case "last5_1sthalf_goals_for_mean":
-                            return "Primer Tiempo";
-                        case "last5_2ndhalf_goals_for_mean":
-                            return "Segundo Tiempo";
-                        case "last5_fulltime_goals_against_mean":
-                            return "Tiempo Completo";
-                        case "last5_1sthalf_goals_against_mean":
-                            return "Primer Tiempo";
-                        case "last5_2ndhalf_goals_against_mean":
-                            return "Segundo Tiempo";
-                    }
-                })
-        }
-    )
-
-svg2.append("text")
-    .attr("class", "grid_text")
-    .attr("x", WIDTH / 2)
-    .attr("y", 10)
-    .attr("text-anchor", "middle")
-    .attr("dominant-baseline", "middle")
-    .attr("font-size", "12px")
-    .attr("fill", "gray")
-    .attr("font-weight", "bold")
-    .text("Goles anotados")
-
-svg2.append("text")
-    .attr("class", "grid_text")
-    .attr("x", WIDTH / 2)
-    .attr("y", 490)
-    .attr("text-anchor", "middle")
-    .attr("dominant-baseline", "middle")
-    .attr("font-size", "12px")
-    .attr("fill", "gray")
-    .attr("font-weight", "bold")
-    .text("Goles recibidos")
+    .range([0, 80]);
 
 svg2.append("circle")
     .attr("class", "legend_circle")
     .transition()
     .duration(500)
-    .attr("cx", 10)
+    .attr("cx", 295)
     .attr("cy", 25)
     .attr("r", 5)
     .attr("fill", "#79B4A9")
@@ -134,20 +30,20 @@ svg2.append("text")
     .attr("class", "legend_text")
     .transition()
     .duration(500)
-    .attr("x", 20)
-    .attr("y", (_, i) => i == 0 ? 30 : 60)
+    .attr("x", 305)
+    .attr("y", 30)
     .attr("text-anchor", "start")
     .attr("font-size", 15)
     .attr("font-weight", "bold")
     .attr("fill", "#79B4A9")
-    .text("Esperado")
+    .text("Rendimiento esperado")
 
 svg2.append("circle")
     .attr("class", "legend_circle_2")
     .transition()
     .duration(500)
-    .attr("cx", 10)
-    .attr("cy", 55)
+    .attr("cx", 485)
+    .attr("cy", 25)
     .attr("r", 5)
     .attr("fill", "#7765E3")
 
@@ -155,13 +51,13 @@ svg2.append("text")
     .attr("class", "legend_text_2")
     .transition()
     .duration(500)
-    .attr("x", 20)
-    .attr("y", 60)
+    .attr("x", 495)
+    .attr("y", 30)
     .attr("text-anchor", "start")
     .attr("font-size", 15)
     .attr("font-weight", "bold")
     .attr("fill", "#7765E3")
-    .text("Real")
+    .text("Rendimiento real")
 
 function createChart2(league, matchday){
     d3.csv("data/last5.csv").then((data) => {
@@ -170,12 +66,12 @@ function createChart2(league, matchday){
         let max_goals_for = d3.max(data.filter(d => d.league_name == league && d.matchday == matchday), d => Math.max(d.last5_fulltime_goals_for_mean, d.fulltime_goals_for));
         let dataRadialScale1 = d3.scaleLinear()
             .domain([0, max_goals_for])
-            .range([0, 200]);
+            .range([0, 80]);
 
         let max_goals_against = d3.max(data.filter(d => d.league_name == league && d.matchday == matchday), d => Math.max(d.last5_fulltime_goals_against_mean, d.fulltime_goals_against));
         let dataRadialScale2 = d3.scaleLinear()
             .domain([0, max_goals_against])
-            .range([0, 200]);
+            .range([0, 80]);
 
         let teams = data.filter(d => d.league_name == league && d.matchday == matchday).map(d => d.team);
         let dropdown3 = d3.select("#matchday-filter")
@@ -203,14 +99,133 @@ function createChart2(league, matchday){
             });
 
         svg2.selectAll(".team_group")
-            .data(data.filter(d => d.league_name == league && d.matchday == matchday && d.team == teams[0]))
+            .data(data.filter(d => d.league_name == league && d.matchday == matchday))
             .join(
                 enter => {
                     // console.log("enter");
                     let G = enter.append("g")
                         .attr("id", (_, i) => `team_group_${i}`)
                         .attr("class", "team_group")
+                        .attr("transform", (_, i) => `translate(${(i % 4) * 200 - 300}, ${(Math.floor(i / 4)) * 270 - 520})`)
 
+                    G.selectAll("grid_circle_group")
+                        .data([1, 2, 3, 4])
+                        .join(
+                            enter => {
+                                let group = enter.append("g")
+                                    .attr("class", "grid_circle_group")
+                    
+                                group.append("circle")
+                                    .transition()
+                                    .duration(500)
+                                    .attr("class", "grid_circle")
+                                    .attr("cx", WIDTH / 2)
+                                    .attr("cy", HEIGHT / 2)
+                                    .attr("fill", "transparent")
+                                    .attr("stroke", (_, i) => i == 3 ? "black" : "gray")
+                                    .attr("r", d => radialScale(d))
+                            }
+                        );
+
+                    G.selectAll(".grid_line")
+                        .data(["last5_fulltime_goals_for_mean", "last5_1sthalf_goals_for_mean", "last5_2ndhalf_goals_for_mean", "last5_fulltime_goals_against_mean", "last5_1sthalf_goals_against_mean", "last5_2ndhalf_goals_against_mean"])
+                        .join(
+                            enter => {
+                                // console.log("enter");
+                                let G2 = enter.append("g")
+                                    .attr("id", (_, i) => `grid_line_${i}`)
+                                    .attr("class", "grid_line")
+                                
+                                G2.append("line")
+                                    .attr("id", (_, i) => `grid_line_${i}`)
+                                    .attr("class", "grid_line")
+                                    .transition()
+                                    .duration(500)
+                                    .attr("x1", WIDTH / 2)
+                                    .attr("y1", HEIGHT / 2)
+                                    .attr("x2", (_, i) => {
+                                        let x = Math.cos(((i - 2.5) * -60) * (Math.PI / 180)) * 80;
+                                        return WIDTH / 2 + x;
+                                    }
+                                    )
+                                    .attr("y2", (_, i) => {
+                                        let y = Math.sin(((i - 2.5) * -60) * (Math.PI / 180)) * 80;
+                                        return HEIGHT / 2 - y;
+                                    }
+                                    )
+                                    .attr("stroke", "gray")
+                                    .attr("stroke-width", 1)
+                                    .style("stroke-dasharray", ("3, 3"))
+
+                                    G2.append("text")
+                                        .attr("id", (_, i) => `grid_text_${i}`)
+                                        .attr("class", "grid_text")
+                                        .transition()
+                                        .duration(500)
+                                        .attr("x", (_, i) => {
+                                            let x = Math.cos(((i - 2.5) * -60) * (Math.PI / 180)) * 90;
+                                            return WIDTH / 2 + x;
+                                        }
+                                        )
+                                        .attr("y", (_, i) => {
+                                            let y = Math.sin(((i - 2.5) * -60) * (Math.PI / 180)) * 90;
+                                            return HEIGHT / 2 - y;
+                                        }
+                                        )
+                                        .attr("text-anchor", "middle")
+                                        .attr("dominant-baseline", "middle")
+                                        .attr("font-size", "12px")
+                                        .attr("fill", "gray")
+                                        .attr("transform", (_, i) => {
+                                            let x = Math.cos(((i - 2.5) * -60) * (Math.PI / 180)) * 90;
+                                            let y = Math.sin(((i - 2.5) * -60) * (Math.PI / 180)) * 90;
+                                            return `rotate(${((i % 3) * 60) - 60}, ${WIDTH / 2 + x}, ${HEIGHT / 2 - y})`;
+                                        }
+                                        )
+                                        .text(d => {
+                                            switch (d) {
+                                                case "last5_fulltime_goals_for_mean":
+                                                    return "TC";
+                                                case "last5_1sthalf_goals_for_mean":
+                                                    return "1T";
+                                                case "last5_2ndhalf_goals_for_mean":
+                                                    return "2T";
+                                                case "last5_fulltime_goals_against_mean":
+                                                    return "TC";
+                                                case "last5_1sthalf_goals_against_mean":
+                                                    return "1T";
+                                                case "last5_2ndhalf_goals_against_mean":
+                                                    return "2T";
+                                            }
+                                        })
+                            })
+
+                    G.append("text")
+                        .attr("class", "grid_text")
+                        .transition()
+                        .duration(500)
+                        .attr("x", WIDTH / 2)
+                        .attr("y", HEIGHT / 2 - 105)
+                        .attr("text-anchor", "middle")
+                        .attr("dominant-baseline", "middle")
+                        .attr("font-size", "12px")
+                        .attr("fill", "gray")
+                        .attr("font-weight", "bold")
+                        .text("Anotados")
+                    
+                    G.append("text")
+                        .attr("class", "grid_text")
+                        .transition()
+                        .duration(500)
+                        .attr("x", WIDTH / 2)
+                        .attr("y", HEIGHT / 2 + 105)
+                        .attr("text-anchor", "middle")
+                        .attr("dominant-baseline", "middle")
+                        .attr("font-size", "12px")
+                        .attr("fill", "gray")
+                        .attr("font-weight", "bold")
+                        .text("Recibidos")
+                    
                     G.selectAll(".team_circle")
                         .data(d => {
                             // console.log(Object.values(d).slice(3, 15));
@@ -222,8 +237,10 @@ function createChart2(league, matchday){
 
                                 circles.attr("class", "team_circle")
                                     .attr("class", "stat")
+                                    .transition()
+                                    .duration(500)
                                     .attr("cx", (d, i) => {
-                                        console.log(d, Math.trunc(i / 3));
+                                        // console.log(d, Math.trunc(i / 3));
                                         if (Math.trunc(i / 3) % 2 == 0) {
                                             let x = Math.cos((150 - 60 * (i % 6)) * (Math.PI / 180)) * dataRadialScale1(d[1]);
                                             return WIDTH / 2 + x;
@@ -241,7 +258,7 @@ function createChart2(league, matchday){
                                             return HEIGHT / 2 - y;
                                         }
                                     })
-                                    .attr("r", 5)
+                                    .attr("r", 3.5)
                                     .attr("fill", (_, i) => i < 6 ? "#79B4A9" : "#7765E3")
                                 
                                 return circles;
@@ -251,7 +268,7 @@ function createChart2(league, matchday){
                     G.append("path")
                         .attr("class", "team_path_1")
                         .transition()
-                        .duration(500)
+                        .duration(1000)
                         .attr("d", d => {
                             let x1 = Math.cos((150) * (Math.PI / 180)) * dataRadialScale1(d.last5_fulltime_goals_for_mean);
                             let y1 = Math.sin((150) * (Math.PI / 180)) * dataRadialScale1(d.last5_fulltime_goals_for_mean);
@@ -276,9 +293,9 @@ function createChart2(league, matchday){
                     G.append("path")
                         .attr("class", "team_path_2")
                         .transition()
-                        .duration(500)
+                        .duration(1000)
                         .attr("d", d => {
-                            console.log(d['1sthalf_goals_for']);
+                            // console.log(d['1sthalf_goals_for']);
                             let x1 = Math.cos((150) * (Math.PI / 180)) * dataRadialScale1(d.fulltime_goals_for);
                             let y1 = Math.sin((150) * (Math.PI / 180)) * dataRadialScale1(d.fulltime_goals_for);
                             let x2 = Math.cos((90) * (Math.PI / 180)) * dataRadialScale1(d['1sthalf_goals_for']);
@@ -301,23 +318,181 @@ function createChart2(league, matchday){
 
                     G.append("text")
                         .attr("class", "grid_label_1")
-                        .attr("x", 438)
-                        .attr("y", 60)
+                        .transition()
+                        .duration(500)
+                        .attr("x", 444)
+                        .attr("y", HEIGHT / 2 - 74)
                         .attr("text-anchor", "middle")
                         .attr("dominant-baseline", "middle")
-                        .attr("font-size", "12px")
+                        .attr("font-size", "8px")
                         .attr("fill", "gray")
                         .text(`${max_goals_for}`)
 
                     G.append("text")
                         .attr("class", "grid_label_2")
+                        .transition()
+                        .duration(500)
                         .attr("x", 454)
-                        .attr("y", 444)
+                        .attr("y", HEIGHT / 2 + 74)
                         .attr("text-anchor", "start")
                         .attr("dominant-baseline", "middle")
-                        .attr("font-size", "12px")
+                        .attr("font-size", "8px")
                         .attr("fill", "gray")
                         .text(`${max_goals_against}`)
+
+                    G.append("text")
+                        .attr("class", "grid_label_3")
+                        .transition()
+                        .duration(500)
+                        .attr("x", WIDTH / 2)
+                        .attr("y", HEIGHT / 2 - 120)
+                        .attr("text-anchor", "middle")
+                        .attr("dominant-baseline", "middle")
+                        .attr("font-size", "15px")
+                        .attr("font-weight", "bold")
+                        .attr("fill", "gray")
+                        .text(d => d.team)
+
+                    G.append("rect")
+                        .attr("class", "team_info_1_rect")
+                        .attr("class", "tooltip")
+                        .attr("x", WIDTH / 2 - 170)
+                        .attr("y", HEIGHT / 2 - 110)
+                        .attr("width", 80)
+                        .attr("height", 105)
+                        .attr("fill", "#79B4A9")
+                        .attr("fill-opacity", 0.5)
+                        .attr("stroke", "white")
+                        .attr("stroke-width", 0.5)
+                        .attr("rx", 5)
+                        .attr("ry", 5)
+
+                    G.append("text")
+                        .attr("id", "team_info_1")
+                        .attr("class", "tooltip")
+                        .attr("x", WIDTH / 2 - 160)
+                        .attr("y", HEIGHT / 2 - 100)
+                        .attr("text-anchor", "start")
+                        .attr("dominant-baseline", "middle")
+                        .attr("font-size", "6px")
+                        .attr("font-weight", "bold")
+                        .attr("fill", "white")
+                        .text("Rendimiento esperado")
+                        .append("tspan")
+                        .attr("x", WIDTH / 2 - 160)
+                        .attr("dy", 14)
+                        .text("Goles a favor")
+                        .append("tspan")
+                        .attr("x", WIDTH / 2 - 160)
+                        .attr("dy", 9)
+                        .attr("font-weight", "normal")
+                        .text(d => `Tiempo completo: ${d.last5_fulltime_goals_for_mean}`)
+                        .append("tspan")
+                        .attr("x", WIDTH / 2 - 160)
+                        .attr("dy", 9)
+                        .text(d => `Primer tiempo: ${d.last5_1sthalf_goals_for_mean}`)
+                        .append("tspan")
+                        .attr("x", WIDTH / 2 - 160)
+                        .attr("dy", 9)
+                        .text(d => `Segundo tiempo: ${d.last5_2ndhalf_goals_for_mean}`)
+                        .append("tspan")
+                        .attr("x", WIDTH / 2 - 160)
+                        .attr("dy", 14)
+                        .attr("font-weight", "bold")
+                        .text("Goles en contra")
+                        .append("tspan")
+                        .attr("x", WIDTH / 2 - 160)
+                        .attr("dy", 9)
+                        .attr("font-weight", "normal")
+                        .text(d => `Tiempo completo: ${d.last5_fulltime_goals_against_mean}`)
+                        .append("tspan")
+                        .attr("x", WIDTH / 2 - 160)
+                        .attr("dy", 9)
+                        .text(d => `Primer tiempo: ${d.last5_1sthalf_goals_against_mean}`)
+                        .append("tspan")
+                        .attr("x", WIDTH / 2 - 160)
+                        .attr("dy", 9)
+                        .text(d => `Segundo tiempo: ${d.last5_2ndhalf_goals_against_mean}`)
+
+                    G.append("rect")
+                        .attr("class", "team_info_2_rect")
+                        .attr("class", "tooltip")
+                        .attr("x", WIDTH / 2 + 90)
+                        .attr("y", HEIGHT / 2 - 110)
+                        .attr("width", 80)
+                        .attr("height", 105)
+                        .attr("fill", "#7765E3")
+                        .attr("fill-opacity", 0.5)
+                        .attr("stroke", "white")
+                        .attr("stroke-width", 0.5)
+                        .attr("rx", 5)
+                        .attr("ry", 5)
+
+                    G.append("text")
+                        .attr("id", "team_info_2")
+                        .attr("class", "tooltip")
+                        .attr("x", WIDTH / 2 + 160)
+                        .attr("y", HEIGHT / 2 - 100)
+                        .attr("text-anchor", "end")
+                        .attr("dominant-baseline", "middle")
+                        .attr("font-size", "6px")
+                        .attr("font-weight", "bold")
+                        .attr("fill", "white")
+                        .text("Rendimiento real")
+                        .append("tspan")
+                        .attr("x", WIDTH / 2 + 160)
+                        .attr("dy", 14)
+                        .text("Goles a favor")
+                        .append("tspan")
+                        .attr("x", WIDTH / 2 + 160)
+                        .attr("dy", 9)
+                        .attr("font-weight", "normal")
+                        .text(d => `Tiempo completo: ${d.fulltime_goals_for}`)
+                        .append("tspan")
+                        .attr("x", WIDTH / 2 + 160)
+                        .attr("dy", 9)
+                        .text(d => `Primer tiempo: ${d['1sthalf_goals_for']}`)
+                        .append("tspan")
+                        .attr("x", WIDTH / 2 + 160)
+                        .attr("dy", 9)
+                        .text(d => `Segundo tiempo: ${d['2ndhalf_goals_for']}`)
+                        .append("tspan")
+                        .attr("x", WIDTH / 2 + 160)
+                        .attr("dy", 14)
+                        .attr("font-weight", "bold")
+                        .text("Goles en contra")
+                        .append("tspan")
+                        .attr("x", WIDTH / 2 + 160)
+                        .attr("dy", 9)
+                        .attr("font-weight", "normal")
+                        .text(d => `Tiempo completo: ${d.fulltime_goals_against}`)
+                        .append("tspan")
+                        .attr("x", WIDTH / 2 + 160)
+                        .attr("dy", 9)
+                        .text(d => `Primer tiempo: ${d['1sthalf_goals_against']}`)
+                        .append("tspan")
+                        .attr("x", WIDTH / 2 + 160)
+                        .attr("dy", 9)
+                        .text(d => `Segundo tiempo: ${d['2ndhalf_goals_against']}`)
+                    
+                    G.on("click", function (event, d) {
+                        console.log(event, d);
+                        svg2.selectAll(".team_group")
+                            .transition()
+                            .duration(500)
+                            .style("opacity", 0)
+                        
+                        d3.select(this)
+                            .transition()
+                            .duration(500)
+                            .attr("transform", "translate(-680, -1370) scale(2.5)")
+                            .style("opacity", 1);
+
+                        d3.select(this).selectAll(".tooltip")
+                            .transition()
+                            .duration(500)
+                            .style("opacity", 1)
+                    })
                 },
                 update => {
                     // console.log(update);
@@ -342,7 +517,7 @@ function createChart2(league, matchday){
                                     .transition()
                                     .duration(500)
                                     .attr("cx", (d, i) => {
-                                        console.log(d, Math.trunc(i / 3));
+                                        // console.log(d, Math.trunc(i / 3));
                                         if (Math.trunc(i / 3) % 2 == 0) {
                                             let x = Math.cos((150 - 60 * (i % 6)) * (Math.PI / 180)) * dataRadialScale1(d[1]);
                                             return WIDTH / 2 + x;
@@ -360,7 +535,7 @@ function createChart2(league, matchday){
                                             return HEIGHT / 2 - y;
                                         }
                                     })
-                                    .attr("r", 5)
+                                    .attr("r", 3.5)
                                     .attr("fill", (_, i) => i < 6 ? "#79B4A9" : "#7765E3")
                                 
                                 return circles;
@@ -418,6 +593,99 @@ function createChart2(league, matchday){
 
                     update.select(".grid_label_2")
                         .text(`${max_goals_against}`)
+                    
+                    update.select(".grid_label_3")
+                        .text(d => d.team)
+
+                    update.select("#team_info_1")
+                        .attr("x", WIDTH / 2 - 160)
+                        .attr("y", HEIGHT / 2 - 100)
+                        .attr("text-anchor", "start")
+                        .attr("dominant-baseline", "middle")
+                        .attr("font-size", "6px")
+                        .attr("font-weight", "bold")
+                        .attr("fill", "white")
+                        .text("Rendimiento esperado")
+                        .append("tspan")
+                        .attr("x", WIDTH / 2 - 160)
+                        .attr("dy", 14)
+                        .text("Goles a favor")
+                        .append("tspan")
+                        .attr("x", WIDTH / 2 - 160)
+                        .attr("dy", 9)
+                        .attr("font-weight", "normal")
+                        .text(d => `Tiempo completo: ${d.last5_fulltime_goals_for_mean}`)
+                        .append("tspan")
+                        .attr("x", WIDTH / 2 - 160)
+                        .attr("dy", 9)
+                        .text(d => `Primer tiempo: ${d.last5_1sthalf_goals_for_mean}`)
+                        .append("tspan")
+                        .attr("x", WIDTH / 2 - 160)
+                        .attr("dy", 9)
+                        .text(d => `Segundo tiempo: ${d.last5_2ndhalf_goals_for_mean}`)
+                        .append("tspan")
+                        .attr("x", WIDTH / 2 - 160)
+                        .attr("dy", 14)
+                        .attr("font-weight", "bold")
+                        .text("Goles en contra")
+                        .append("tspan")
+                        .attr("x", WIDTH / 2 - 160)
+                        .attr("dy", 9)
+                        .attr("font-weight", "normal")
+                        .text(d => `Tiempo completo: ${d.last5_fulltime_goals_against_mean}`)
+                        .append("tspan")
+                        .attr("x", WIDTH / 2 - 160)
+                        .attr("dy", 9)
+                        .text(d => `Primer tiempo: ${d.last5_1sthalf_goals_against_mean}`)
+                        .append("tspan")
+                        .attr("x", WIDTH / 2 - 160)
+                        .attr("dy", 9)
+                        .text(d => `Segundo tiempo: ${d.last5_2ndhalf_goals_against_mean}`)
+
+                    update.select("#team_info_2")
+                        .attr("x", WIDTH / 2 + 160)
+                        .attr("y", HEIGHT / 2 - 100)
+                        .attr("text-anchor", "end")
+                        .attr("dominant-baseline", "middle")
+                        .attr("font-size", "6px")
+                        .attr("font-weight", "bold")
+                        .attr("fill", "white")
+                        .text("Rendimiento real")
+                        .append("tspan")
+                        .attr("x", WIDTH / 2 + 160)
+                        .attr("dy", 14)
+                        .text("Goles a favor")
+                        .append("tspan")
+                        .attr("x", WIDTH / 2 + 160)
+                        .attr("dy", 9)
+                        .attr("font-weight", "normal")
+                        .text(d => `Tiempo completo: ${d.fulltime_goals_for}`)
+                        .append("tspan")
+                        .attr("x", WIDTH / 2 + 160)
+                        .attr("dy", 9)
+                        .text(d => `Primer tiempo: ${d['1sthalf_goals_for']}`)
+                        .append("tspan")
+                        .attr("x", WIDTH / 2 + 160)
+                        .attr("dy", 9)
+                        .text(d => `Segundo tiempo: ${d['2ndhalf_goals_for']}`)
+                        .append("tspan")
+                        .attr("x", WIDTH / 2 + 160)
+                        .attr("dy", 14)
+                        .attr("font-weight", "bold")
+                        .text("Goles en contra")
+                        .append("tspan")
+                        .attr("x", WIDTH / 2 + 160)
+                        .attr("dy", 9)
+                        .attr("font-weight", "normal")
+                        .text(d => `Tiempo completo: ${d.fulltime_goals_against}`)
+                        .append("tspan")
+                        .attr("x", WIDTH / 2 + 160)
+                        .attr("dy", 9)
+                        .text(d => `Primer tiempo: ${d['1sthalf_goals_against']}`)
+                        .append("tspan")
+                        .attr("x", WIDTH / 2 + 160)
+                        .attr("dy", 9)
+                        .text(d => `Segundo tiempo: ${d['2ndhalf_goals_against']}`)
                 },
                 exit => {
                     exit.transition()
