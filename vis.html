@@ -43,17 +43,20 @@
     </div>
 
     <h1>Visualización 2</h1>
-    <p>No se que vamos a hacer acá</p>
+    <p>Esta visualización muestra datos respecto a los últimos 5 partidos de los equipos seleccionados. Se incluye lo sigiuente: el promedio de goles anotados en los últimos cinco partidos; lo cual está separado en los goles anotados durante todo el partido, el primer tiempo y el segundo tiempo. De forma parecida, se incluye el promedio de goles recibidos en los últimos cinco partidos, separados nuevamente en las tres categorías mencionadas.</p>
     <div class="selector">
         <span>Equipo 1: </span>
         <select id="team-filter-1" class="filter">
-            <option value="Arsenal" selected>Arsenal</option>
         </select>
     </div>
     <div class="selector">
         <span>Equipo 2: </span>
         <select id="team-filter-2" class="filter">
-            <option value="Chelsea" selected>Chelsea</option>
+        </select>
+    </div>
+    <div class="selector">
+        <span>Escoge una fecha: </span>
+        <select id="matchday-filter" class="filter">
         </select>
     </div>
     <div id="vis_2"> 
@@ -84,7 +87,7 @@
     </div>
     <script src="javascript/parent_vis.mjs" type="module"></script>
     <script src="javascript/first_vis.mjs" type="module"></script>
-    <script src="javascript/second_vis.js"></script>
+    <script src="javascript/second_vis.mjs" type="module"></script>
     <script src="javascript/third_vis.mjs" type="module"></script>
 </body>
 </html>
