@@ -364,6 +364,8 @@ function createChart2(league, matchday){
                         .attr("fill-opacity", 0.5)
                         .attr("stroke", "white")
                         .attr("stroke-width", 0.5)
+                        .style("display", "none")
+                        .style("opacity", 0)
                         .attr("rx", 5)
                         .attr("ry", 5)
 
@@ -377,6 +379,8 @@ function createChart2(league, matchday){
                         .attr("font-size", "6px")
                         .attr("font-weight", "bold")
                         .attr("fill", "white")
+                        .style("display", "none")
+                        .style("opacity", 0)
                         .text("Rendimiento esperado")
                         .append("tspan")
                         .attr("x", WIDTH / 2 - 160)
@@ -425,6 +429,8 @@ function createChart2(league, matchday){
                         .attr("fill-opacity", 0.5)
                         .attr("stroke", "white")
                         .attr("stroke-width", 0.5)
+                        .style("display", "none")
+                        .style("opacity", 0)
                         .attr("rx", 5)
                         .attr("ry", 5)
 
@@ -438,6 +444,8 @@ function createChart2(league, matchday){
                         .attr("font-size", "6px")
                         .attr("font-weight", "bold")
                         .attr("fill", "white")
+                        .style("display", "none")
+                        .style("opacity", 0)
                         .text("Rendimiento real")
                         .append("tspan")
                         .attr("x", WIDTH / 2 + 160)
@@ -478,19 +486,20 @@ function createChart2(league, matchday){
                     G.on("click", function (event, d) {
                         console.log(event, d);
                         svg2.selectAll(".team_group")
-                            .transition()
-                            .duration(500)
-                            .style("opacity", 0)
+                            .style("display", "none")
                         
                         d3.select(this)
                             .transition()
                             .duration(500)
+                            .ease(d3.easeCubicOut)
                             .attr("transform", "translate(-680, -1370) scale(2.5)")
-                            .style("opacity", 1);
+                            .style("display", "block");
 
                         d3.select(this).selectAll(".tooltip")
                             .transition()
                             .duration(500)
+                            .ease(d3.easeCubicOut)
+                            .style("display", "block")
                             .style("opacity", 1)
                     })
                 },

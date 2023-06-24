@@ -69,12 +69,3 @@ img{
 .button:hover{
     cursor: pointer;
 }
-
-.team_info{
-    background-color: #f9d3a7;
-    border: solid black 1px;
-}
-
-.tooltip {
-    opacity: 0;
-}
