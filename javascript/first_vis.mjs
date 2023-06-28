@@ -107,24 +107,24 @@ function updateChart1(svg, selectedLeague, selectedScorer, selectedGoalType) {
         .attr("y1", (d) => (yScale(d.q3)))
         .attr("y2", (d) => (yScale(d.max)))
     
-        boxplotGroups.append("line")
+        /* boxplotGroups.append("line")
         .data(matchdayStatistics)
         .join("line")
         .attr("x1", -boxWidth/4)
         .attr("x2", boxWidth/4)
         .attr("y1", (d) => (yScale(d.min)))
         .attr("y2", (d) => (yScale(d.min)))
-        .attr("stroke-width", 2);
+        .attr("stroke-width", 2);*/
     
         
-        boxplotGroups.append("line")
+        /*boxplotGroups.append("line")
         .data(matchdayStatistics)
         .join("line")
         .attr("x1", -boxWidth/4)
         .attr("x2", boxWidth/4)
         .attr("y1", (d) => (yScale(d.max)))
         .attr("y2", (d) => (yScale(d.max)))
-        .attr("stroke-width", 2); 
+        .attr("stroke-width", 2); */
 
         boxplotGroups.append("line")
         .data(matchdayStatistics)

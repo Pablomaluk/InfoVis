@@ -12,14 +12,11 @@
 <body>
     <div class="container">
         <h1>Informe Proyecto</h1>
-        <p><i>Template</i> base confeccionar el informe. Se puede
-            modificar el estilo si así lo desean, pero se recomienda 
-            mantener las secciones separadas para facilitar la corrección del informe.</p>
 
         <div class="response">
             <h3>Integrantes</h2>
-                <p>Nombre 1</p>
-                <p>Nombre 2</p>
+                <p>José Tomás Lledo</p>
+                <p>Pablo Maluk</p>
         </div>
 
         <div class="case">
@@ -28,25 +25,47 @@
                     <h4>Contexto de la situación y la naturaleza de los datos</h4>
                     <!-- Puedes agregar los P que sean necesarios -->
                     <h4>Respuesta:</h4>
-                    <p>Modifica solo este texto (no el de arriba) para poner tu respuesta</p>
+                    <p> El fútbol es un deporte en el que 2 equipos de 11 jugadores se enfrentan, y el 
+                        objetivo es marcar más goles que el rival. Por lo tanto, el deporte contiene 2 aspectos clave: 
+                        la ofensa y la defensa. La capacidad de un equipo para marcar, como de proteger su arco, son 
+                        la esencia para obtener la victoria. Cada partido dura 90 minutos y se divide en 2 mitades.
+                        Existen varias grandes ligas, donde todos los equipos se enfrentan entre sí 2 veces,
+                        alternando el equipo local y el visitante. El ganador de cada partido se lleva 3 puntos para 
+                        la clasificación, mientras que el perdedor se lleva 0, y en caso de un empate ambos se llevan 1 punto.
+                    </p>
+                    <p> Se trabajará con datos de las 7 principales ligas europeas de la temporada 2022-2023:
+                        <ul>
+                            <li>Inglaterra <i>(Premier League)</i></li>
+                            <li>España <i>(La Liga)</i></li>
+                            <li>Italia <i>(Serie A)</i></li>
+                            <li>Alemania <i>(Bundesliga)</i></li>
+                            <li>Francia <i>(Ligue 1)</i></li>
+                            <li>Portugal <i>(Primeira Liga)</i></li>
+                            <li>Holanda <i>(Eredivisie)</i></li>
+                        </ul>
+                    </p>
                 </div>
                 <div class="response">
                     <h4>Fuente original de los datos</h4>
                     <!-- Puedes agregar los P que sean necesarios -->
                     <h4>Respuesta:</h4>
-                    <p>Modifica solo este texto (no el de arriba) para poner tu respuesta</p>
+                    <p> Los datos se obtuvieron de una <a href="https://www.football-data.org/">API</a> de resultados de fútbol.</p>
+                    <p> En el siguiente <a href="https://uccl0-my.sharepoint.com/:u:/g/personal/pablo_maluk_uc_cl/ETNJiKycbTxFgqnKL16GAzMBC50Cw01RO1PnbjHREqPtAA?e=ukcTHP">link</a>
+                        se encuentra un ZIP con un archivo .csv.</p>
                 </div>
                 <div class="response">
                     <h4>Usuario objetivo</h4>
                     <!-- Puedes agregar los P que sean necesarios -->
                     <h4>Respuesta:</h4>
-                    <p>Modifica solo este texto (no el de arriba) para poner tu respuesta</p>
+                    <p>Fanáticos del fútbol y apostadores deportivos.
+                    </p>
                 </div>
                 <div class="response">
                     <h4>Uso de la herramienta</h4>
                     <!-- Puedes agregar los P que sean necesarios -->
                     <h4>Respuesta:</h4>
-                    <p>Modifica solo este texto (no el de arriba) para poner tu respuesta</p>
+                    <p>Informarse de los desempeños de los distintos equipos, visualizar estadísticas
+                        para encontrar posibles patrones con los que quitarle dinero al casino.</p>
                 </div>
 
         </div>
@@ -57,13 +76,40 @@
                     <h4>Tipos de datos a utilizar en el proyecto</h4>
                     <!-- Puedes agregar los P que sean necesarios -->
                     <h4>Respuesta:</h4>
-                    <p>Modifica solo este texto (no el de arriba) para poner tu respuesta</p>
+                    <p>La estructura de los datos es tabular, donde cada fila o ítem corresponde a un partido específico.
+                        Además, la disponibilidad del dataset es estática.
+                        Para cada partido se tienen los siguientes atributos:
+                        <ul>
+                            <li>Liga correspondiente</li>
+                            <li>Fecha del partido en el campeonato con rango [1; 2 &times; (N° equipos liga &minus; 1)]</li>
+                            <li>Nombre del equipo local</li>
+                            <li>Nombre del equipo visitante</li>
+                            <li>3 columnas de equipo ganador (en cada mitad del partido y al tiempo completo)</li>
+                            <li>9 columnas de goles marcados (para cada equipo y el total de ambos, en cada mitad y tiempo completo)</li>
+                            <li>18 columnas desde la fecha 6 en adelante, con los promedios de las 9 columnas de goles, para 
+                                cada equipo en sus 5 partidos inmediatamente anteriores.</li>
+                        </ul>
+                    </p>
                 </div>
                 <div class="response">
                     <h4>Tipos de atributos presente en los datos</h4>
                     <!-- Puedes agregar los P que sean necesarios -->
                     <h4>Respuesta:</h4>
-                    <p>Modifica solo este texto (no el de arriba) para poner tu respuesta</p>
+                    <p>Se tienen los siguientes atributos categóricos:
+                        <ul>
+                            <li>Liga correspondiente</li>
+                            <li>Nombre del equipo local</li>
+                            <li>Nombre del equipo visitante</li>
+                            <li>3 columnas de equipo ganador</li>
+                        </ul>
+                    </p>
+                    <p>Se tienen los siguientes atributos ordenados, cuantitativos y secuenciales:
+                        <ul>
+                            <li>Fecha del partido (discreto y jerárquico)</li>
+                            <li>9 columnas de goles marcados (discretos)</li>
+                            <li>18 columnas de 5 partidos anteriores (continuos)</li>
+                        </ul>
+                    </p>
                 </div>
         </div>
 
@@ -73,19 +119,35 @@
                     <h4>Tarea 1 (acción + objetivo) + justificación según el dominio presentado</h4>
                     <!-- Puedes agregar los P que sean necesarios -->
                     <h4>Respuesta:</h4>
-                    <p>Modifica solo este texto (no el de arriba) para poner tu respuesta</p>
+                    <p>Descubrir la distribución de goles en cada fecha de liga, junto con su tendencia
+                        a lo largo de una temporada. Esto permite visualizar patrones en relación a la evolución,
+                        además de conocer las distribuciones de goles, lo que permitiría entender los 
+                        rangos esperados de resultados. Esto cumple con los 2dos usuarios y usos objetivos especificados
+                        para las visualizaciones.
+                    </p>
                 </div>
                 <div class="response">
                     <h4>Tarea 2 (acción + objetivo) + justificación según el dominio presentado</h4>
                     <!-- Puedes agregar los P que sean necesarios -->
                     <h4>Respuesta:</h4>
-                    <p>Modifica solo este texto (no el de arriba) para poner tu respuesta</p>
+                    <p>Comparar el rendimiento de algún equipo en un partido en relación a sus resultados anteriores.
+                        Esto permite ver para cada equipo, su estado de forma y resultado obtenido en cada fecha. Sirve
+                        tanto para fanáticos que quieran visualizar los resultados y consistencia de un equipo,
+                        como un acercamiento para apostadores a comenzar a revisar la validez del estado de forma como 
+                        predictor de resultados.
+                    </p>
                 </div>
                 <div class="response">
                     <h4>Tarea 3 (acción + objetivo) + justificación según el dominio presentado</h4>
                     <!-- Puedes agregar los P que sean necesarios -->
                     <h4>Respuesta:</h4>
-                    <p>Modifica solo este texto (no el de arriba) para poner tu respuesta</p>
+                    <p>Resumir los resultados de la temporada para cualquier liga. Esto permite para fanáticos 
+                        y apostadores obtener una visión general de la temporada. Por lo tanto, se pueden
+                        visualizar los resultados de cada equipo, además de compararlos entre sí. Se puede ver
+                        la frecuencia con que cada equipo tiene ciertos resultados, además de ver sus tendencias y rachas.
+                        Para los fanáticos, permite mejorar su entendimiento respecto al desempeño de los distintos equipos,
+                        mientras que para los apostadores les permite categorizar a los distintos equipos según sus resultados.
+                    </p>
                 </div>
         </div>
 
@@ -95,19 +157,178 @@
                     <h4>Decisiones de diseño relacionadas a la primera tarea visual</h4>
                     <!-- Puedes agregar los P que sean necesarios -->
                     <h4>Respuesta:</h4>
-                    <p>Modifica solo este texto (no el de arriba) para poner tu respuesta</p>
+                    <ul>
+                        <p><b>FALTA IDIOM INTERACCIÓN</b></p>
+                    <li>Dado que se quiere mostrar las distribuciones de goles por fecha, junto con su evolución, 
+                        se eligió usar múltiples diagramas de caja y bigote. Esto permite mostrar cada distribución, al
+                        mismo tiempo que se comparan simultáneamente entre ellas.
+                    </li>
+                    <br>
+                    <li>
+                        Se posicionaron ejes verticales a ambos lados de la visualización para poder tenerlos lo más cercano
+                        posible a los datos, y facilitar la determinación visual de sus valores.
+                        Además, el eje horizontal se posicionó un poco más abajo que los datos, para descomprimir un poco 
+                        la visualización, y que los ceros no colisionen con el eje.
+                        Además, se separó el eje horizontal de los ejes verticales para que las cajas no colisionen con los ejes.
+                    </li>
+                    <br>
+                    <li> Se usó únicamente el color rojo para destacar el dato más representativo de la distribución,
+                        que es la mediana, especialemente dado que en algunos casos coincidía con cuartiles y no era 
+                        obvio donde estaba ubicada.
+                    </li>
+                    <br>
+                    <li><b>
+                        - PENDIENTE Selección elementos: mostrar información específica de esa fecha (partidos) y/o enfatizar específicos => reducción información
+                    </b></li>
+                    <br>
+                    <li> Se usaron líneas como marcas para mostrar mínimo y máximo, además de generar conexión con los demás valores 
+                        asociados al dato de cada fecha, es decir, la caja con los cuartiles y mediana. Además, se usaron líneas 
+                        también para localizar las medianas.
+                    </li>
+                    <br>
+                    <li>
+                        También se uso áreas o rectángulos como marca, dado que permitían diferenciar el tipo de dato estadístico 
+                        que se estaba mostrando. Es decir, diferencia claramente los cuartiles con los mínimos y máximos.
+                    </li>
+                    <br>
+                    <li>
+                        Se usó el canal de color para énfasis del dato estadístico más importante.
+                    </li>
+                    <br>
+                    <li> Se usó como canal la posición vertical para determinar valores de los datos estadísticos. 
+                    </li>
+                    <br>
+                    <li>
+                        El último canal usado fueron las formas, dado que permitían diferenciar los cuartiles de los
+                        mínimos y máximos, de una forma estándar y conocida, que el lector habrá visto anteriormente y 
+                        podrá identificar y entender rápidamente.
+                    </li>
+                    <br>
+                    <li>
+                        Los ejes de valores parten en 0, y todos los ejes tienen intervalos constantes y secuencialmente ordenados. 
+                        Además, se simplificó al máximo la visualización para maximizar el data ink ratio. 
+                        Dada la gran cantidad de fechas, el eje extra tiene el fin de facilitar la percepción de valores hacia el final del gráfico.
+                    </li>
+                    <br>
+                    <li>
+                        No hay uso de 3d, y se minimiza el uso de color únicamente para resaltar un valor importante.
+                    </li>
+                    <br>
+                    <li>
+                        Se presentan todos los datos inicialmente, para tener la opción de generar una idea completa de los datos, 
+                        con la opción posterior de seleccionar a voluntad del usuario.
+                    </li>
+                    <br>
+                    <li>
+                        Los colores y formas son consistentes, y los títulos permiten entender lo que se muestra para tener una visualización autocontenida.
+                    </li>
+                </ul>
                 </div>
                 <div class="response">
                     <h4>Decisiones de diseño relacionadas a la segunda tarea visual</h4>
                     <!-- Puedes agregar los P que sean necesarios -->
                     <h4>Respuesta:</h4>
-                    <p>Modifica solo este texto (no el de arriba) para poner tu respuesta</p>
+                    <ul>
+                        <p><b>FALTA IDIOM INTERACCIÓN</b></p>
+                    <li> 
+                        Para la segunda visualización, se eligió el gráfico de radar, dado que permite visualizar varios 
+                        atributos simultáneamente y compararlos, en una escala equivalente.
+                    </li>
+                    <br>
+                    <li>
+                        Se posicionaron los ejes asociados al mismo momento del partido en la misma línea, lo que
+                        permite comparar directamente atributos inversos de forma intuitiva. Además, dado que todos 
+                        miden el mismo valor, tienen una escala común en cada equipo y su partido asociado.
+                    </li>
+                    <br>
+                    <li> Se eligieron 2 colores, violeta y celeste, que permiten diferenciar los elementos claramente, 
+                        sin generar encandilamiento y con contraste claro.
+                    </li>
+                    <br>
+                    <li>
+                        La selección de elementos se emplea de forma natural haciendo click, y permite ver más detalles
+                        sobre un equipo en particular, y reducir la información mostrada en total.
+                    </li>
+                    <br>
+                    <li> Una marca usada fueron líneas, para generar conexión entre atributos que pertenecen al mismo elemento.
+                    </li>
+                    <br>
+                    <li> La otra marca usada fueron puntos, ya que no agregan dimensionalidad innecesaria
+                        y permiten determinar claramente dónde se mide el valor que se está mostrando.
+                    </li>
+                    <br>
+                    <li>
+                        Como canal, se usó la distancia radial para mostrar el valor que tiene un atributo.
+                    </li>
+                    <br>
+                    <li>
+                        El otro canal usado fue el color, que permite diferenciar los valores asociados a los partidos anteriores,
+                        y compararlos con los valores asociados al partido actual.
+                    </li>
+                    <br>
+                    <li>
+                        Los ejes de valores parten en 0 en el centro del círculo, y todos tienen una escala común
+                        para el mismo partido. 
+                    </li>
+                    <br>
+                    <li>
+                        No hay uso de 3d, y se minimiza el uso de color únicamente para diferenciar grupos de valores,
+                        que son solo 2, por lo que no se satura este canal.
+                    </li>
+                    <br>
+                    <li>
+                        Se presentan todos los partidos asociados a una fecha inicialmente, para tener la opción de generar 
+                        una idea completa, con la opción posterior de seleccionar libremente a voluntad del usuario,
+                        y obtener mayores detalles sobre el encuentro deseado.
+                    </li>
+                    <br>
+                    <li>
+                        Los colores y formas son consistentes, y los títulos permiten entender lo que se muestra para tener una visualización autocontenida.
+                    </li>
+                </ul>
                 </div>
                 <div class="response">
                     <h4>Decisiones de diseño relacionadas a la tercera tarea visual</h4>
                     <!-- Puedes agregar los P que sean necesarios -->
                     <h4>Respuesta:</h4>
-                    <p>Modifica solo este texto (no el de arriba) para poner tu respuesta</p>
+                    <ul>
+                        <p><b>FALTA IDIOM INTERACCIÓN</b></p>
+                    <li> 
+                        Para la tercera visualización, se eligió el mapa de calor, dado que permite mostrar muchos datos eficientemente.
+                        En este caso, se resume la información de muchas fechas asociadas a muchos equipos en cada liga, y se logran
+                        mostrar todos los resultados de forma clara y sin exceso de información. Además, permite diferenciar 
+                        los tipos de resultados de forma efectiva e intuitiva.
+                    </li>
+                    <br>
+                    <li>
+                        Se eligieron colores que no generan contraste, y que representan de forma natural e intuitiva su valor,
+                        generando consistencia externa. Por ejemplo, el verde, rojo y gris, muestran resultados positivos, negativos, y neutros
+                        respectivamente, por lo que se asocian a victorias, derrotas y empates.
+                    </li>
+                    <br>
+                    <li> Como marca se usaron áreas, todos cuadrados de igual tamaño. A pesar de que contienen dimensionalidad superior
+                        a los datos que muestran, son sumamente efectivos, dado que permiten separar y descongestionar los datos, distinguiendo
+                        claramente la fecha y equipo al que están asociados, a pesar de la gran cantidad de elementos que se muestran.
+                    </li>
+                    <br>
+                    <li>
+                        Como canal, se usó únicamente los colores, dado que representan naturalmente el problema, y 
+                        no se tiene dimensionalidad adicional.
+                    </li>
+                    <br>
+                    <li>
+                        El eje de fechas se muestra en orden cronológico y ordenado, y no se utiliza 3d.
+                    </li>
+                    <br>
+                    <li>
+                        Se muestran todos los resultados inicialmente, con la opción de seleccionar uno en particular a visualizar
+                        a voluntad del usuario.
+                    </li>
+                    <br>
+                    <li>
+                        Los colores se usan de forma consistente, y el gráfico se autocontiene de forma efectiva.
+                    </li>
+                </ul>
                 </div>
         </div>
 
