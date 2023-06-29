@@ -68,7 +68,17 @@ function updateChart1(svg, selectedLeague, selectedScorer, selectedGoalType) {
         .duration(500)
         .attr("transform", `translate(${margin + boxWidth}, ${height-margin})`)
         .call(xAxis)
-    
+
+        svg.append("g")
+            .append("text")
+            .transition()
+            .duration(500)
+            .attr("x", width/2)
+            .attr("y", height - margin/2)
+            .style("font-size", "14px")
+            .style("fill", "black")
+            .text("Número de partido")
+
         const yAxis = d3.axisLeft(yScale);
         
         svg.append("g")
@@ -77,6 +87,16 @@ function updateChart1(svg, selectedLeague, selectedScorer, selectedGoalType) {
         .attr("transform", `translate(${margin}, ${margin/2})`)
         .call(yAxis);
         
+        svg.append("g")
+            .append("text")
+            .transition()
+            .duration(500)
+            .attr("x", margin/2)
+            .attr("y", margin/2 - 20)
+            .style("font-size", "14px")
+            .style("fill", "black")
+            .text("Número de goles")
+
     
         const boxplotGroups = svg.selectAll(".g")
         .data(matchdayStatistics)
