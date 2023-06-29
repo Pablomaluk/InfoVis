@@ -131,18 +131,17 @@ function updateChart1(svg, selectedLeague, selectedScorer, selectedGoalType) {
         .attr("y1", (d) => (yScale(d.q2)))
         .attr("y2", (d) => (yScale(d.q2)));
 
-        /*boxplotGroups
-        .on('mouseover', function (d) {
-        boxplotGroups.style('opacity', 0.2)
-        d3.select(this).style('opacity', 1)
-        d3.select(this).attr("stroke-width", 2)
-        })
-        .on('mouseout', function (d) {
-            boxplotGroups.style('opacity', 1)
-            d3.select(this).attr("stroke-width", 1)
-        })*/
+        svg.call(d3.brush().extent([[margin, margin], [width, height-margin]]).on("brush end", (event)=>{highlightRects(svg, event.selection, xScale, boxWidth)}));
 
-        svg.call(d3.brush().extent([[0, 0], [width, height]]).on("brush end", (event)=>{highlightRects(svg, event.selection, xScale, boxWidth)}))
+        svg.append("text")
+        .attr("x", margin/2)
+        .attr("y", height/2)
+        .attr("transform", "rotate(-90)")
+        .style("font-size", "14px")
+        .style("fill", "black")
+        .text("Goles")
+        .raise();
+
         
     });
 
@@ -153,7 +152,6 @@ function highlightRects(svg, selection, xScale, boxWidth){
     if (selection != null) {
     gs.classed("selected", (g)=>{return isBrushed(g, selection, xScale, boxWidth)});
     gs.classed("notSelected", (g)=>{return !isBrushed(g, selection, xScale, boxWidth)});
-    console.log(svg.selectAll(".selected").size());
     if (!svg.selectAll(".selected").size()){
         gs.classed("notSelected", false);
     }
