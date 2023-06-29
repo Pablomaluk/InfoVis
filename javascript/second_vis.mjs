@@ -17,7 +17,9 @@ let radialScale = d3.scaleLinear()
     .domain([0, 4])
     .range([0, 80]);
 
-svg2.append("circle")
+let legend_group = svg2.append("g").attr("id", "legend_group");
+
+legend_group.append("circle")
     .attr("class", "legend_circle")
     .transition()
     .duration(500)
@@ -26,7 +28,7 @@ svg2.append("circle")
     .attr("r", 5)
     .attr("fill", "#79B4A9")
 
-svg2.append("text")
+legend_group.append("text")
     .attr("class", "legend_text")
     .transition()
     .duration(500)
@@ -38,7 +40,7 @@ svg2.append("text")
     .attr("fill", "#79B4A9")
     .text("Rendimiento esperado")
 
-svg2.append("circle")
+legend_group.append("circle")
     .attr("class", "legend_circle_2")
     .transition()
     .duration(500)
@@ -47,7 +49,7 @@ svg2.append("circle")
     .attr("r", 5)
     .attr("fill", "#7765E3")
 
-svg2.append("text")
+legend_group.append("text")
     .attr("class", "legend_text_2")
     .transition()
     .duration(500)
@@ -73,6 +75,38 @@ function createChart2(league, matchday){
             .domain([0, max_goals_against])
             .range([0, 80]);
 
+        function getPathCoordinates(points, mode) {
+            if (mode == 1){
+            let x1 = Math.cos((150) * (Math.PI / 180)) * dataRadialScale1(points.last5_fulltime_goals_for_mean);
+            let y1 = Math.sin((150) * (Math.PI / 180)) * dataRadialScale1(points.last5_fulltime_goals_for_mean);
+            let x2 = Math.cos((90) * (Math.PI / 180)) * dataRadialScale1(points['last5_1sthalf_goals_for_mean']);
+            let y2 = Math.sin((90) * (Math.PI / 180)) * dataRadialScale1(points['last5_1sthalf_goals_for_mean']);
+            let x3 = Math.cos((30) * (Math.PI / 180)) * dataRadialScale1(points['last5_2ndhalf_goals_for_mean']);
+            let y3 = Math.sin((30) * (Math.PI / 180)) * dataRadialScale1(points['last5_2ndhalf_goals_for_mean']);
+            let x4 = Math.cos((-30) * (Math.PI / 180)) * dataRadialScale2(points.last5_fulltime_goals_against_mean);
+            let y4 = Math.sin((-30) * (Math.PI / 180)) * dataRadialScale2(points.last5_fulltime_goals_against_mean);
+            let x5 = Math.cos((-90) * (Math.PI / 180)) * dataRadialScale2(points['last5_1sthalf_goals_against_mean']);
+            let y5 = Math.sin((-90) * (Math.PI / 180)) * dataRadialScale2(points['last5_1sthalf_goals_against_mean']);
+            let x6 = Math.cos((-150) * (Math.PI / 180)) * dataRadialScale2(points['last5_2ndhalf_goals_against_mean']);
+            let y6 = Math.sin((-150) * (Math.PI / 180)) * dataRadialScale2(points['last5_2ndhalf_goals_against_mean']);
+            return `M ${WIDTH / 2 + x1} ${HEIGHT / 2 - y1} L ${WIDTH / 2 + x2} ${HEIGHT / 2 - y2} L ${WIDTH / 2 + x3} ${HEIGHT / 2 - y3} L ${WIDTH / 2 + x4} ${HEIGHT / 2 - y4} L ${WIDTH / 2 + x5} ${HEIGHT / 2 - y5} L ${WIDTH / 2 + x6} ${HEIGHT / 2 - y6} L ${WIDTH / 2 + x1} ${HEIGHT / 2 - y1}`;
+            } else {
+            let x1 = Math.cos((150) * (Math.PI / 180)) * dataRadialScale1(points.fulltime_goals_for);
+            let y1 = Math.sin((150) * (Math.PI / 180)) * dataRadialScale1(points.fulltime_goals_for);
+            let x2 = Math.cos((90) * (Math.PI / 180)) * dataRadialScale1(points['1sthalf_goals_for']);
+            let y2 = Math.sin((90) * (Math.PI / 180)) * dataRadialScale1(points['1sthalf_goals_for']);
+            let x3 = Math.cos((30) * (Math.PI / 180)) * dataRadialScale1(points['2ndhalf_goals_for']);
+            let y3 = Math.sin((30) * (Math.PI / 180)) * dataRadialScale1(points['2ndhalf_goals_for']);
+            let x4 = Math.cos((-30) * (Math.PI / 180)) * dataRadialScale2(points.fulltime_goals_against);
+            let y4 = Math.sin((-30) * (Math.PI / 180)) * dataRadialScale2(points.fulltime_goals_against);
+            let x5 = Math.cos((-90) * (Math.PI / 180)) * dataRadialScale2(points['1sthalf_goals_against']);
+            let y5 = Math.sin((-90) * (Math.PI / 180)) * dataRadialScale2(points['1sthalf_goals_against']);
+            let x6 = Math.cos((-150) * (Math.PI / 180)) * dataRadialScale2(points['2ndhalf_goals_against']);
+            let y6 = Math.sin((-150) * (Math.PI / 180)) * dataRadialScale2(points['2ndhalf_goals_against']);
+            return `M ${WIDTH / 2 + x1} ${HEIGHT / 2 - y1} L ${WIDTH / 2 + x2} ${HEIGHT / 2 - y2} L ${WIDTH / 2 + x3} ${HEIGHT / 2 - y3} L ${WIDTH / 2 + x4} ${HEIGHT / 2 - y4} L ${WIDTH / 2 + x5} ${HEIGHT / 2 - y5} L ${WIDTH / 2 + x6} ${HEIGHT / 2 - y6} L ${WIDTH / 2 + x1} ${HEIGHT / 2 - y1}`;
+            }
+        }
+        
         let teams = data.filter(d => d.league_name == league && d.matchday == matchday).map(d => d.team);
         let dropdown3 = d3.select("#matchday-filter")
         dropdown3.selectAll("option").data(data.filter(d => d.league_name == league && d.team == teams[0])).join(
@@ -270,19 +304,7 @@ function createChart2(league, matchday){
                         .transition()
                         .duration(1000)
                         .attr("d", d => {
-                            let x1 = Math.cos((150) * (Math.PI / 180)) * dataRadialScale1(d.last5_fulltime_goals_for_mean);
-                            let y1 = Math.sin((150) * (Math.PI / 180)) * dataRadialScale1(d.last5_fulltime_goals_for_mean);
-                            let x2 = Math.cos((90) * (Math.PI / 180)) * dataRadialScale1(d.last5_1sthalf_goals_for_mean);
-                            let y2 = Math.sin((90) * (Math.PI / 180)) * dataRadialScale1(d.last5_1sthalf_goals_for_mean);
-                            let x3 = Math.cos((30) * (Math.PI / 180)) * dataRadialScale1(d.last5_2ndhalf_goals_for_mean);
-                            let y3 = Math.sin((30) * (Math.PI / 180)) * dataRadialScale1(d.last5_2ndhalf_goals_for_mean);
-                            let x4 = Math.cos((-30) * (Math.PI / 180)) * dataRadialScale2(d.last5_fulltime_goals_against_mean);
-                            let y4 = Math.sin((-30) * (Math.PI / 180)) * dataRadialScale2(d.last5_fulltime_goals_against_mean);
-                            let x5 = Math.cos((-90) * (Math.PI / 180)) * dataRadialScale2(d.last5_1sthalf_goals_against_mean);
-                            let y5 = Math.sin((-90) * (Math.PI / 180)) * dataRadialScale2(d.last5_1sthalf_goals_against_mean);
-                            let x6 = Math.cos((-150) * (Math.PI / 180)) * dataRadialScale2(d.last5_2ndhalf_goals_against_mean);
-                            let y6 = Math.sin((-150) * (Math.PI / 180)) * dataRadialScale2(d.last5_2ndhalf_goals_against_mean);
-                            return `M ${WIDTH / 2 + x1} ${HEIGHT / 2 - y1} L ${WIDTH / 2 + x2} ${HEIGHT / 2 - y2} L ${WIDTH / 2 + x3} ${HEIGHT / 2 - y3} L ${WIDTH / 2 + x4} ${HEIGHT / 2 - y4} L ${WIDTH / 2 + x5} ${HEIGHT / 2 - y5} L ${WIDTH / 2 + x6} ${HEIGHT / 2 - y6} L ${WIDTH / 2 + x1} ${HEIGHT / 2 - y1}`;
+                            return getPathCoordinates(d, 1);
                         }
                         )
                         .attr("stroke", "#79B4A9")
@@ -295,20 +317,7 @@ function createChart2(league, matchday){
                         .transition()
                         .duration(1000)
                         .attr("d", d => {
-                            // console.log(d['1sthalf_goals_for']);
-                            let x1 = Math.cos((150) * (Math.PI / 180)) * dataRadialScale1(d.fulltime_goals_for);
-                            let y1 = Math.sin((150) * (Math.PI / 180)) * dataRadialScale1(d.fulltime_goals_for);
-                            let x2 = Math.cos((90) * (Math.PI / 180)) * dataRadialScale1(d['1sthalf_goals_for']);
-                            let y2 = Math.sin((90) * (Math.PI / 180)) * dataRadialScale1(d['1sthalf_goals_for']);
-                            let x3 = Math.cos((30) * (Math.PI / 180)) * dataRadialScale1(d['2ndhalf_goals_for']);
-                            let y3 = Math.sin((30) * (Math.PI / 180)) * dataRadialScale1(d['2ndhalf_goals_for']);
-                            let x4 = Math.cos((-30) * (Math.PI / 180)) * dataRadialScale2(d.fulltime_goals_against);
-                            let y4 = Math.sin((-30) * (Math.PI / 180)) * dataRadialScale2(d.fulltime_goals_against);
-                            let x5 = Math.cos((-90) * (Math.PI / 180)) * dataRadialScale2(d['1sthalf_goals_against']);
-                            let y5 = Math.sin((-90) * (Math.PI / 180)) * dataRadialScale2(d['1sthalf_goals_against']);
-                            let x6 = Math.cos((-150) * (Math.PI / 180)) * dataRadialScale2(d['2ndhalf_goals_against']);
-                            let y6 = Math.sin((-150) * (Math.PI / 180)) * dataRadialScale2(d['2ndhalf_goals_against']);
-                            return `M ${WIDTH / 2 + x1} ${HEIGHT / 2 - y1} L ${WIDTH / 2 + x2} ${HEIGHT / 2 - y2} L ${WIDTH / 2 + x3} ${HEIGHT / 2 - y3} L ${WIDTH / 2 + x4} ${HEIGHT / 2 - y4} L ${WIDTH / 2 + x5} ${HEIGHT / 2 - y5} L ${WIDTH / 2 + x6} ${HEIGHT / 2 - y6} L ${WIDTH / 2 + x1} ${HEIGHT / 2 - y1}`;
+                            return getPathCoordinates(d, 2);
                         }
                         )
                         .attr("stroke", "#7765E3")
@@ -345,7 +354,7 @@ function createChart2(league, matchday){
                         .transition()
                         .duration(500)
                         .attr("x", WIDTH / 2)
-                        .attr("y", HEIGHT / 2 - 120)
+                        .attr("y", HEIGHT / 2 - 130)
                         .attr("text-anchor", "middle")
                         .attr("dominant-baseline", "middle")
                         .attr("font-size", "15px")
@@ -357,7 +366,7 @@ function createChart2(league, matchday){
                         .attr("class", "team_info_1_rect")
                         .attr("class", "tooltip")
                         .attr("x", WIDTH / 2 - 170)
-                        .attr("y", HEIGHT / 2 - 110)
+                        .attr("y", HEIGHT / 2 - 150)
                         .attr("width", 80)
                         .attr("height", 105)
                         .attr("fill", "#79B4A9")
@@ -373,7 +382,7 @@ function createChart2(league, matchday){
                         .attr("id", "team_info_1")
                         .attr("class", "tooltip")
                         .attr("x", WIDTH / 2 - 160)
-                        .attr("y", HEIGHT / 2 - 100)
+                        .attr("y", HEIGHT / 2 - 140)
                         .attr("text-anchor", "start")
                         .attr("dominant-baseline", "middle")
                         .attr("font-size", "6px")
@@ -422,7 +431,7 @@ function createChart2(league, matchday){
                         .attr("class", "team_info_2_rect")
                         .attr("class", "tooltip")
                         .attr("x", WIDTH / 2 + 90)
-                        .attr("y", HEIGHT / 2 - 110)
+                        .attr("y", HEIGHT / 2 - 150)
                         .attr("width", 80)
                         .attr("height", 105)
                         .attr("fill", "#7765E3")
@@ -438,7 +447,7 @@ function createChart2(league, matchday){
                         .attr("id", "team_info_2")
                         .attr("class", "tooltip")
                         .attr("x", WIDTH / 2 + 160)
-                        .attr("y", HEIGHT / 2 - 100)
+                        .attr("y", HEIGHT / 2 - 140)
                         .attr("text-anchor", "end")
                         .attr("dominant-baseline", "middle")
                         .attr("font-size", "6px")
@@ -482,17 +491,32 @@ function createChart2(league, matchday){
                         .attr("x", WIDTH / 2 + 160)
                         .attr("dy", 9)
                         .text(d => `Segundo tiempo: ${d['2ndhalf_goals_against']}`)
+
+                    G.append("text")
+                        .attr("id", "rival_team")
+                        .transition()
+                        .duration(500)
+                        .attr("x", WIDTH / 2)
+                        .attr("y", HEIGHT / 2 - 120)
+                        .attr("text-anchor", "middle")
+                        .attr("dominant-baseline", "middle")
+                        .attr("font-size", "8px")
+                        .attr("font-weight", "bold")
+                        .attr("fill", "gray")
+                        .text(d => `vs. ${d.rival}`)
                     
                     G.on("click", function (event, d) {
                         console.log(event, d);
                         svg2.selectAll(".team_group")
                             .style("display", "none")
                         
+                        this.classList.add("selected");
+
                         d3.select(this)
                             .transition()
                             .duration(500)
                             .ease(d3.easeCubicOut)
-                            .attr("transform", "translate(-680, -1370) scale(2.5)")
+                            .attr("transform", "translate(-680, -1330) scale(2.5)")
                             .style("display", "block");
 
                         d3.select(this).selectAll(".tooltip")
@@ -501,6 +525,38 @@ function createChart2(league, matchday){
                             .ease(d3.easeCubicOut)
                             .style("display", "block")
                             .style("opacity", 1)
+                        
+                        d3.select(this).selectAll(".grid_text")
+                            .transition()
+                            .duration(500)
+                            .attr("font-size", "8px")
+                            .text((_, i) => {
+                                if (i == 0 || i == 3){
+                                    return "Tiempo Completo"
+                                } else if (i == 1 || i == 4){
+                                    return "Primer Tiempo"
+                                } else if (i == 2 || i == 5){
+                                    return "Segundo Tiempo"
+                                } else if (i == 6){
+                                    return "Goles anotados"
+                                } else if (i == 7){
+                                    return "Goles recibidos"
+                                }
+                            })
+                    })
+
+                    G.on("mouseover", function (event, d) {
+                        if (!this.classList.contains("selected")){
+                            d3.select(this)
+                                .style("cursor", "pointer")
+                        }
+                    })
+
+                    G.on("mouseout", function (event, d) {
+                        if (this.classList.contains("selected")){
+                            d3.select(this)
+                                .style("cursor", "default")
+                        }
                     })
                 },
                 update => {
@@ -555,19 +611,7 @@ function createChart2(league, matchday){
                         .transition()
                         .duration(500)
                         .attr("d", d => {
-                            let x1 = Math.cos((150) * (Math.PI / 180)) * dataRadialScale1(d.last5_fulltime_goals_for_mean);
-                            let y1 = Math.sin((150) * (Math.PI / 180)) * dataRadialScale1(d.last5_fulltime_goals_for_mean);
-                            let x2 = Math.cos((90) * (Math.PI / 180)) * dataRadialScale1(d.last5_1sthalf_goals_for_mean);
-                            let y2 = Math.sin((90) * (Math.PI / 180)) * dataRadialScale1(d.last5_1sthalf_goals_for_mean);
-                            let x3 = Math.cos((30) * (Math.PI / 180)) * dataRadialScale1(d.last5_2ndhalf_goals_for_mean);
-                            let y3 = Math.sin((30) * (Math.PI / 180)) * dataRadialScale1(d.last5_2ndhalf_goals_for_mean);
-                            let x4 = Math.cos((-30) * (Math.PI / 180)) * dataRadialScale2(d.last5_fulltime_goals_against_mean);
-                            let y4 = Math.sin((-30) * (Math.PI / 180)) * dataRadialScale2(d.last5_fulltime_goals_against_mean);
-                            let x5 = Math.cos((-90) * (Math.PI / 180)) * dataRadialScale2(d.last5_1sthalf_goals_against_mean);
-                            let y5 = Math.sin((-90) * (Math.PI / 180)) * dataRadialScale2(d.last5_1sthalf_goals_against_mean);
-                            let x6 = Math.cos((-150) * (Math.PI / 180)) * dataRadialScale2(d.last5_2ndhalf_goals_against_mean);
-                            let y6 = Math.sin((-150) * (Math.PI / 180)) * dataRadialScale2(d.last5_2ndhalf_goals_against_mean);
-                            return `M ${WIDTH / 2 + x1} ${HEIGHT / 2 - y1} L ${WIDTH / 2 + x2} ${HEIGHT / 2 - y2} L ${WIDTH / 2 + x3} ${HEIGHT / 2 - y3} L ${WIDTH / 2 + x4} ${HEIGHT / 2 - y4} L ${WIDTH / 2 + x5} ${HEIGHT / 2 - y5} L ${WIDTH / 2 + x6} ${HEIGHT / 2 - y6} L ${WIDTH / 2 + x1} ${HEIGHT / 2 - y1}`;
+                            return getPathCoordinates(d, 1);
                         })
                         .attr("stroke", "#79B4A9")
                         .attr("stroke-width", 2)
@@ -578,19 +622,7 @@ function createChart2(league, matchday){
                         .transition()
                         .duration(500)
                         .attr("d", d => {
-                            let x1 = Math.cos((150) * (Math.PI / 180)) * dataRadialScale1(d.fulltime_goals_for);
-                            let y1 = Math.sin((150) * (Math.PI / 180)) * dataRadialScale1(d.fulltime_goals_for);
-                            let x2 = Math.cos((90) * (Math.PI / 180)) * dataRadialScale1(d['1sthalf_goals_for']);
-                            let y2 = Math.sin((90) * (Math.PI / 180)) * dataRadialScale1(d['1sthalf_goals_for']);
-                            let x3 = Math.cos((30) * (Math.PI / 180)) * dataRadialScale1(d['2ndhalf_goals_for']);
-                            let y3 = Math.sin((30) * (Math.PI / 180)) * dataRadialScale1(d['2ndhalf_goals_for']);
-                            let x4 = Math.cos((-30) * (Math.PI / 180)) * dataRadialScale2(d.fulltime_goals_against);
-                            let y4 = Math.sin((-30) * (Math.PI / 180)) * dataRadialScale2(d.fulltime_goals_against);
-                            let x5 = Math.cos((-90) * (Math.PI / 180)) * dataRadialScale2(d['1sthalf_goals_against']);
-                            let y5 = Math.sin((-90) * (Math.PI / 180)) * dataRadialScale2(d['1sthalf_goals_against']);
-                            let x6 = Math.cos((-150) * (Math.PI / 180)) * dataRadialScale2(d['2ndhalf_goals_against']);
-                            let y6 = Math.sin((-150) * (Math.PI / 180)) * dataRadialScale2(d['2ndhalf_goals_against']);
-                            return `M ${WIDTH / 2 + x1} ${HEIGHT / 2 - y1} L ${WIDTH / 2 + x2} ${HEIGHT / 2 - y2} L ${WIDTH / 2 + x3} ${HEIGHT / 2 - y3} L ${WIDTH / 2 + x4} ${HEIGHT / 2 - y4} L ${WIDTH / 2 + x5} ${HEIGHT / 2 - y5} L ${WIDTH / 2 + x6} ${HEIGHT / 2 - y6} L ${WIDTH / 2 + x1} ${HEIGHT / 2 - y1}`;
+                            return getPathCoordinates(d, 2);
                         })
                         .attr("stroke", "#7765E3")
                         .attr("stroke-width", 1.5)
@@ -607,8 +639,6 @@ function createChart2(league, matchday){
                         .text(d => d.team)
 
                     update.select("#team_info_1")
-                        .attr("x", WIDTH / 2 - 160)
-                        .attr("y", HEIGHT / 2 - 100)
                         .attr("text-anchor", "start")
                         .attr("dominant-baseline", "middle")
                         .attr("font-size", "6px")
@@ -652,8 +682,6 @@ function createChart2(league, matchday){
                         .text(d => `Segundo tiempo: ${d.last5_2ndhalf_goals_against_mean}`)
 
                     update.select("#team_info_2")
-                        .attr("x", WIDTH / 2 + 160)
-                        .attr("y", HEIGHT / 2 - 100)
                         .attr("text-anchor", "end")
                         .attr("dominant-baseline", "middle")
                         .attr("font-size", "6px")
@@ -695,12 +723,12 @@ function createChart2(league, matchday){
                         .attr("x", WIDTH / 2 + 160)
                         .attr("dy", 9)
                         .text(d => `Segundo tiempo: ${d['2ndhalf_goals_against']}`)
+
+                    update.select('#rival_team')
+                        .text(d => `vs. ${d.rival}`)
                 },
                 exit => {
-                    exit.transition()
-                        .duration(500)
-                        .style("opacity", 0)
-                        .remove()
+                    exit.remove()
                 }
             );
     });
