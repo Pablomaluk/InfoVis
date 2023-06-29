@@ -20,8 +20,18 @@
             <option value="Serie A">Serie A</option>
         </select>
     </div>
-    <h1>Visualización 1</h1>
-    <p>Diagrama de caja y bigotes</p>
+    <h1>Distribuciones de goles para cada fecha de liga</h1>
+    <p>Cada diagrama de caja y bigote representa una fecha del campeonato, o número del partido
+        para cada equipo en la liga seleccionada. En el eje X se encuentra la fecha en orden cronológico,
+        mientras que la altura en el eje Y representa la cantidad de goles asociada a cada estadística.
+        La mediana es de color rojo, las cajas representan del primer al tercer cuartil, y las líneas 
+        verticales representan el máximo y el mínimo. Adicionalmente, se puede seleccionar varias fechas
+        con brushing, y se destacarán éstas y ocultará el resto.
+    </p>
+    <p>
+        Se puede alterar los datos que se muestran cambiando la liga seleccionada, el equipo que anotó los goles, y el
+        tiempo del partido en que se anotaron los goles.
+    </p>
     <br>
     <div class="selector">
         <span>Goles anotados por: </span>
@@ -42,8 +52,15 @@
     <div id="vis_1"> 
     </div>
 
-    <h1>Visualización 2</h1>
-    <p>Esta visualización muestra el rendimiento esperado (basado en estadísticas de los últimos 5 partidos) y el rendimiento real de un equipo en términos de goles anotados y recibidos. Haz click en un equipo para ver más detalles.</p>
+    <h1>Resultados de cada equipo y comparación rendimiento esperado </h1>
+    <p>Esta visualización muestra para todos los equipos de una liga, un gráfico radial con sus resultados en cada mitad del partido
+        y al tiempo completo, junto con sus "resultados esperados", que se refieren al promedio de estos resultados para sus 5 partidos
+        anteriores. Al hacer click en un gráfico radial, se muestran más detalles, como los valores numéricos explícitos.
+        Al apretar restablecer, se volverá a la vista generalizada de todos los equipos y sus partidos asociados a la fecha del campeonato.
+    </p>
+    <p>
+        Se puede alterar los datos que se muestran cambiando la liga seleccionada y la fecha del campeonato.
+    </p>
     <div class="selector">
         <span>Escoge una fecha: </span>
         <select id="matchday-filter" class="filter">
@@ -53,8 +70,15 @@
     <div id="vis_2"> 
     </div>
 
-    <h1>Visualización 3</h1>
-    <p>Aquí puedes visualizar todos los resultados de los equipos según su liga y el resultado que se quiera observar</p>
+    <h1>Resultados de partidos</h1>
+    <p>Esta visualización muestra una tabla resumen de todos los resultados de partidos de una liga. 
+        En el eje X se muestra la fecha del campeonato en orden cronológico, mientras que el eje Y contiene los distintos equipos.
+        Cada celda de la tabla contiene el resultado del partido para el equipo correspondiente en la fecha correspondiente.
+        Las victorias se muestran como verdes, las derrotas como rojo, y los empates como gris. 
+    </p>
+    <p>
+        Se puede alterar los datos que se muestran cambiando la liga seleccionada y el tipo de resultado a visualizar.
+    </p>
     
     <!-- Esto define el relleno de los partidos 35 a 38 en las ligas que tienen solo 34 partidos -->
     <svg viewBox="0 0 80 1" color="grey">
