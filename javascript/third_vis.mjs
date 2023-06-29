@@ -39,7 +39,7 @@ svg.append("g")
 svg.append("text")
     .attr("x", 200)
     .attr("y", 17.5)
-    .text("Equipo")
+    .text("Fecha (N° de partido de liga)")
     .style("font-size", "15px")
     .style("font-weight", "bold")
     .attr("text-anchor", "end");

@@ -2,6 +2,7 @@
 
 const width = 1200;
 const height = 627.5;
+const margin = 80;
 
 function createChart1(){
     const svg_1 = d3.select("#vis_1").append("svg").attr("width", width).attr("height", height);
@@ -43,7 +44,6 @@ function updateChart1(svg, selectedLeague, selectedScorer, selectedGoalType) {
         let matchdayStatistics = getFilteredData(data, selectedLeague, selectedScorer, selectedGoalType);
     
         // create SVG
-        const margin = 80;
         const chartWidth = width - 2 * margin;
         const chartHeight = height - 2 * margin;
         
@@ -64,12 +64,16 @@ function updateChart1(svg, selectedLeague, selectedScorer, selectedGoalType) {
         const xAxis = d3.axisBottom(xScale)
             .tickValues(d3.range(Math.ceil(xScale.domain()[0]), Math.floor(xScale.domain()[1]) + 1));
         svg.append("g")
+        .transition()
+        .duration(500)
         .attr("transform", `translate(${margin + boxWidth}, ${height-margin})`)
         .call(xAxis)
     
         const yAxis = d3.axisLeft(yScale);
         
         svg.append("g")
+        .transition()
+        .duration(500)
         .attr("transform", `translate(${margin}, ${margin/2})`)
         .call(yAxis);
         
@@ -78,6 +82,7 @@ function updateChart1(svg, selectedLeague, selectedScorer, selectedGoalType) {
         .data(matchdayStatistics)
         .join(
             (enter) => enter.append("g")
+            .attr("id", "boxplot")
             .attr("transform", (d) => `translate(${(margin + boxWidth + xScale(d.matchday))}, ${margin/2})`)
             .attr("fill", "transparent")
             .attr("stroke", "black"),
@@ -88,14 +93,19 @@ function updateChart1(svg, selectedLeague, selectedScorer, selectedGoalType) {
         .join("rect")
         .attr("x", -boxWidth/4)
         .attr("width", boxWidth/2)
+        .transition()
+        .duration(500)
         .attr("y", (d) => (yScale(d.q3)))
         .attr("height", (d) => (chartHeight - yScale(d.q3 - d.q1)));
+
     
         boxplotGroups.append("line")
         .data(matchdayStatistics)
         .join("line")
         .attr("x1", 0)
         .attr("x2", 0)
+        .transition()
+        .duration(500)
         .attr("y1", (d) => (yScale(d.min)))
         .attr("y2", (d) => (yScale(d.q1)))
     
@@ -104,42 +114,61 @@ function updateChart1(svg, selectedLeague, selectedScorer, selectedGoalType) {
         .join("line")
         .attr("x1", 0)
         .attr("x2", 0)
+        .transition()
+        .duration(500)
         .attr("y1", (d) => (yScale(d.q3)))
         .attr("y2", (d) => (yScale(d.max)))
-    
-        /* boxplotGroups.append("line")
-        .data(matchdayStatistics)
-        .join("line")
-        .attr("x1", -boxWidth/4)
-        .attr("x2", boxWidth/4)
-        .attr("y1", (d) => (yScale(d.min)))
-        .attr("y2", (d) => (yScale(d.min)))
-        .attr("stroke-width", 2);*/
-    
-        
-        /*boxplotGroups.append("line")
-        .data(matchdayStatistics)
-        .join("line")
-        .attr("x1", -boxWidth/4)
-        .attr("x2", boxWidth/4)
-        .attr("y1", (d) => (yScale(d.max)))
-        .attr("y2", (d) => (yScale(d.max)))
-        .attr("stroke-width", 2); */
 
         boxplotGroups.append("line")
         .data(matchdayStatistics)
         .join("line")
         .attr("x1", -boxWidth/4)
         .attr("x2", boxWidth/4)
-        .attr("y1", (d) => (yScale(d.q2)))
-        .attr("y2", (d) => (yScale(d.q2)))
         .attr("stroke", "red")
-        .attr("stroke-width", 2);
+        .attr("stroke-width", 2)
+        .transition()
+        .duration(500)
+        .attr("y1", (d) => (yScale(d.q2)))
+        .attr("y2", (d) => (yScale(d.q2)));
+
+        /*boxplotGroups
+        .on('mouseover', function (d) {
+        boxplotGroups.style('opacity', 0.2)
+        d3.select(this).style('opacity', 1)
+        d3.select(this).attr("stroke-width", 2)
+        })
+        .on('mouseout', function (d) {
+            boxplotGroups.style('opacity', 1)
+            d3.select(this).attr("stroke-width", 1)
+        })*/
+
+        svg.call(d3.brush().extent([[0, 0], [width, height]]).on("brush end", (event)=>{highlightRects(svg, event.selection, xScale, boxWidth)}))
         
     });
 
 }
 
+function highlightRects(svg, selection, xScale, boxWidth){
+    let gs = svg.selectAll("#boxplot");
+    if (selection != null) {
+    gs.classed("selected", (g)=>{return isBrushed(g, selection, xScale, boxWidth)});
+    gs.classed("notSelected", (g)=>{return !isBrushed(g, selection, xScale, boxWidth)});
+    console.log(svg.selectAll(".selected").size());
+    if (!svg.selectAll(".selected").size()){
+        gs.classed("notSelected", false);
+    }
+    } else {
+    gs.classed("selected", false);
+    gs.classed("notSelected", false);
+    }
+
+}
+
+
+function isBrushed(g, selection, xScale, boxWidth){
+    let result = selection[0][0] <= boxWidth + margin + xScale(g.matchday) && selection[1][0] >= boxWidth + margin + xScale(g.matchday);
+    return result
+}
 
 function getFilteredData(data, selectedLeague, selectedScorer, selectedGoalType){
     
@@ -184,9 +213,8 @@ function getFilteredData(data, selectedLeague, selectedScorer, selectedGoalType)
     ...statistics
     }));
 
-    console.log(selectedLeague, selectedScorer, selectedGoalType, matchdayStatistics);
-
     return matchdayStatistics;
 };
+
 
 export { createChart1, updateChart1 };

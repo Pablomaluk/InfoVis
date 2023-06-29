@@ -69,3 +69,12 @@ img{
 .button:hover{
     cursor: pointer;
 }
+
+.selected {
+    opacity: 1;
+    stroke-width: 2;
+}
+
+.notSelected {
+    opacity: 0.2
+}
