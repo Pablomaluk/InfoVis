@@ -73,11 +73,11 @@ function updateChart1(svg, selectedLeague, selectedScorer, selectedGoalType) {
             .append("text")
             .transition()
             .duration(500)
-            .attr("x", width/2)
-            .attr("y", height - margin/2)
-            .style("font-size", "14px")
+            .attr("x", width/2.5)
+            .attr("y", height - margin/4)
+            .style("font-size", "18px")
             .style("fill", "black")
-            .text("Número de partido")
+        .text("Fecha del campeonato (N° de partido)")
 
         const yAxis = d3.axisLeft(yScale);
         
@@ -93,9 +93,9 @@ function updateChart1(svg, selectedLeague, selectedScorer, selectedGoalType) {
             .duration(500)
             .attr("x", margin/2)
             .attr("y", margin/2 - 20)
-            .style("font-size", "14px")
+            .style("font-size", "18px")
             .style("fill", "black")
-            .text("Número de goles")
+            .text("Goles")
 
     
         const boxplotGroups = svg.selectAll(".g")
@@ -152,15 +152,6 @@ function updateChart1(svg, selectedLeague, selectedScorer, selectedGoalType) {
         .attr("y2", (d) => (yScale(d.q2)));
 
         svg.call(d3.brush().extent([[margin, margin], [width, height-margin]]).on("brush end", (event)=>{highlightRects(svg, event.selection, xScale, boxWidth)}));
-
-        svg.append("text")
-        .attr("x", margin/2)
-        .attr("y", height/2)
-        .attr("transform", "rotate(-90)")
-        .style("font-size", "14px")
-        .style("fill", "black")
-        .text("Goles")
-        .raise();
 
         
     });

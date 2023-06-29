@@ -158,18 +158,16 @@
                     <!-- Puedes agregar los P que sean necesarios -->
                     <h4>Respuesta:</h4>
                     <ul>
-                        <p><b>FALTA IDIOM INTERACCIÓN</b></p>
                     <li>Dado que se quiere mostrar las distribuciones de goles por fecha, junto con su evolución, 
                         se eligió usar múltiples diagramas de caja y bigote. Esto permite mostrar cada distribución, al
                         mismo tiempo que se comparan simultáneamente entre ellas.
                     </li>
                     <br>
                     <li>
-                        Se posicionaron ejes verticales a ambos lados de la visualización para poder tenerlos lo más cercano
-                        posible a los datos, y facilitar la determinación visual de sus valores.
+                        Se utilizó un eje vertical para mostrar valores de goles, y un eje horizontal para mostrar las fechas.
                         Además, el eje horizontal se posicionó un poco más abajo que los datos, para descomprimir un poco 
                         la visualización, y que los ceros no colisionen con el eje.
-                        Además, se separó el eje horizontal de los ejes verticales para que las cajas no colisionen con los ejes.
+                        Finalmente, se separó el eje horizontal de los ejes verticales para que las cajas no colisionen con los ejes.
                     </li>
                     <br>
                     <li> Se usó únicamente el color rojo para destacar el dato más representativo de la distribución,
@@ -178,7 +176,8 @@
                     </li>
                     <br>
                     <li><b>
-                        - PENDIENTE Selección elementos: mostrar información específica de esa fecha (partidos) y/o enfatizar específicos => reducción información
+                        Se implementó brushing para poder seleccionar fechas a observar, dado que hay exceso de información, 
+                        y esto permite eficientemente reducir la información y observar a voluntad del usuario.
                     </b></li>
                     <br>
                     <li> Se usaron líneas como marcas para mostrar mínimo y máximo, además de generar conexión con los demás valores 
@@ -205,9 +204,8 @@
                     </li>
                     <br>
                     <li>
-                        Los ejes de valores parten en 0, y todos los ejes tienen intervalos constantes y secuencialmente ordenados. 
+                        El eje de valores parte en 0, y ambos ejes tienen intervalos constantes y secuencialmente ordenados. 
                         Además, se simplificó al máximo la visualización para maximizar el data ink ratio. 
-                        Dada la gran cantidad de fechas, el eje extra tiene el fin de facilitar la percepción de valores hacia el final del gráfico.
                     </li>
                     <br>
                     <li>
